@@ -1,0 +1,8 @@
+{
+    "MediaPlayer.framework": 2,
+    "ImageIO.framework": 2,
+    "CoreLocation.framework": 2,
+    "AVFoundation.framework": 2,
+    "Social.framework": 2,
+    "MessageUI.framework": 2
+}

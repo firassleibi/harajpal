@@ -1,0 +1,49 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "com.hutchind.cordova.plugins.streamingmedia": {
+            "PACKAGE_NAME": "com.tqniyati.sooqmazad"
+        },
+        "com.phonegap.plugins.PushPlugin": {
+            "PACKAGE_NAME": "com.tqniyati.sooqmazad"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.tqniyati.sooqmazad"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.tqniyati.sooqmazad"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.tqniyati.sooqmazad"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.tqniyati.sooqmazad"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.tqniyati.sooqmazad"
+        },
+        "cordova-plugin-media": {
+            "PACKAGE_NAME": "com.tqniyati.sooqmazad"
+        },
+        "cordova-plugin-media-capture": {
+            "PACKAGE_NAME": "com.tqniyati.sooqmazad"
+        },
+        "cordova-plugin-x-socialsharing": {
+            "PACKAGE_NAME": "com.tqniyati.sooqmazad"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.tqniyati.sooqmazad"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.tqniyati.sooqmazad"
+        }
+    }
+}

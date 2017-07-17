@@ -1,0 +1,286 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="left">
+			<a href="index.html" class="link icon-only">
+				<i class="fa fa-home"></i>
+			</a>
+        </div>
+        <div class="center sliding">إضافة إعلان جديد</div>
+        <div class="right">
+            <a href="#" class="link icon-only back-btn">
+                <i class="fa fa-chevron-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="view another-view">
+    <!-- Pages -->
+    <div class="pages">
+        <div class="page add-page no-toolbar" data-page="add_ads">
+            <div class="page-content">
+				<form action="" method="POST" id="AddAd" class="AdForm">
+					<div class="content-block-title"> الإعلان </div>
+					<div class="list-block">
+						<ul> 
+							<li>
+								<div class="item-content">
+									<div class="item-media"><span class="icon-profile"></span></div>
+									<div class="item-inner">
+										<div class="item-title label">إسم الإعلان</div>
+										<div class="item-input">
+											<input type="text" name="title" placeholder="">
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="item-content">
+									<div class="item-media"><i class="fa fa-calendar"></i></div>
+									<div class="item-inner">
+										<div class="item-title label"> مدة الإعلان </div>
+										<div class="item-input">
+											<select name="ad_time" class="ad_time"></select>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="item-content">
+									<div class="item-media"><i class="fa fa-toggle-on"></i></div>
+									<div class="item-inner">
+										<div class="item-title label"> الخدمة  </div>
+										<div class="item-input">
+											<select name="service" class="service"></select>
+										</div>
+									</div>
+								</div>
+							</li>
+							
+							
+							<li class="auction_start_item">
+								<div class="item-content">
+									<div class="item-media"><i class="fa fa-money"></i></div>
+									<div class="item-inner">
+										<div class="item-title label">فتح بمبلغ</div>
+										<div class="item-input">
+											<input type="text" name="auction_start" placeholder="">
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="date_auction_end_item">
+								<div class="item-content">
+									<div class="item-media"><span class="icon-calendar-31"></span></div>
+									<div class="item-inner">
+										<div class="item-title label">تاريخ الإنتهاء</div>
+										<div class="item-input">
+											<input type="date" placeholder="" name="date_auction_end" class="calendar-auction">
+										</div>
+									</div>
+								</div>
+							</li>
+							
+							
+							<li class="delivery_term_item">
+								<div class="item-content">
+									<div class="item-media"><i class="fa fa-angle-double-left"></i></div>
+									<div class="item-inner">
+										<div class="item-title label"> مدة التجهيز </div>
+										<div class="item-input">
+											<input type="text" name="delivery_term" placeholder="">
+										</div>
+									</div>
+								</div>
+							</li>
+							
+							<li class="price_item">
+								<div class="item-content">
+									<div class="item-media"><i class="fa fa-angle-double-left"></i></div>
+									<div class="item-inner">
+										<div class="item-title label"> السعر </div>
+										<div class="item-input">
+											<input type="text" name="price" placeholder="">
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="currency_type_item">
+								<div class="item-content">
+									<div class="item-media"><i class="fa fa-angle-double-left"></i></div>
+									<div class="item-inner">
+										<div class="item-title label"> العُملة  </div>
+										<div class="item-input">
+											<select name="currency_type" class="currency_type"></select>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="item-content">
+									<div class="item-media"><i class="fa fa-mobile"></i></div>
+									<div class="item-inner">
+										<div class="item-title label"> الجوال  </div>
+										<div class="item-input">
+											<input type="text" name="mobile" placeholder="">
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+
+					<div class="content-block-title">تصنيف الإعلان </div>
+					<div class="list-block">
+						<ul>
+							<li>
+								<div class="item-content">
+									<div class="item-media"><i class="fa fa-chevron-left"></i></div>
+									<div class="item-inner">
+										<div class="item-title label">القسم</div>
+										<div class="item-input">
+											<select name="cat" class="cat"></select>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="brand_item">
+								<div class="item-content">
+									<div class="item-media"><i class="fa fa-angle-double-left"></i></div>
+									<div class="item-inner">
+										<div class="item-title label">التصنيف</div>
+										<div class="item-input">
+											<select name="brand" class="brand"></select>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="typ_item">
+								<div class="item-content">
+									<div class="item-media"><i class="fa fa-angle-left"></i></div>
+									<div class="item-inner">
+										<div class="item-title label">النوع</div>
+										<div class="item-input">
+											<select name="typ" class="typ"></select>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="model_item">
+								<div class="item-content">
+									<div class="item-media"><i class="fa fa-caret-left"></i></div>
+									<div class="item-inner">
+										<div class="item-title label">الموديل</div>
+										<div class="item-input">
+											<select name="model" class="model"></select>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="content-block-title">المكان</div>
+					<div class="list-block">
+						<ul>
+							<li>
+								<div class="item-content">
+									<div class="item-media"><i class="fa fa-flag"></i></div>
+									<div class="item-inner">
+										<div class="item-title label">الدولة</div>
+										<div class="item-input">
+											<select name="country" class="country"></select>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="item-content">
+									<div class="item-media"><i class="fa fa-map-marker"></i></div>
+									<div class="item-inner">
+										<div class="item-title label">المنطقة</div>
+										<div class="item-input">
+											<select name="area" class="area"></select>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+
+					<div class="content-block-title">تفاصيل الإعلان</div>
+					<div class="list-block">
+						<ul>
+							
+							<li>
+								<div class="item-content">
+									<div class="item-media"><i class="fa fa-image"></i></div>
+									<div class="item-inner">
+										<div class="item-title label">صور توضيحية</div>
+										<div class="item-input">
+											<a class="button button-round button-fill" href="#" id="btn">
+												<i class="fa fa-cloud-upload"></i>
+												رفع صور
+											</a>
+											<div id="files"></div>
+											<div class="preloader-files text-center">
+												<span class="preloader"></span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<!--
+							<li>
+								<div class="item-content">
+									<div class="item-media"><i class="fa fa-video-camera"></i></div>
+									<div class="item-inner">
+										<div class="item-title label">فيديو</div>
+										<div class="item-input">
+											<div class="row">
+												<div class="col-30">
+													<label class="label-switch checkbox-vid">
+														<input type="checkbox" id="send_video">
+														<div class="checkbox"></div>
+													</label>
+												</div>
+												<div class="col-50">
+													<a class="button button-round button-fill" href="#" id="btn_video" style="display:none">
+													<i class="fa fa-cloud-upload"></i>
+													تصوير
+													</a>
+													<input type="text" name="video_url" class="video_url" style="display:none">
+													<input type="text" name="video_type" class="video_type" style="display:none">
+												</div>
+												<div class="col-30">
+													<a href="#" class="button button-fill button-round color-green video_exists " style="display:none">
+														<i class="fa fa-check"></i>
+													</a>
+												</div>
+											</div>
+											<div class="clear"></div>
+										</div>
+									</div>
+								</div>
+							</li>
+							-->
+							<!-- Textarea -->
+							<li class="align-top">
+								<div class="item-content">
+									<div class="item-media"><i class="fa fa-align-right"></i></div>
+									<div class="item-inner"> 
+											<textarea name="text" placeholder="وصف الإعلان"></textarea> 
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+						<div class="list-block">
+						<div class="item-content">
+							<input type="submit" value="إضافة الإعلان" class="button button-big ad-form-submit button-secondary button-primary" name="submit">
+						</div>
+						</div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

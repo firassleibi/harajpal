@@ -1,0 +1,2517 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="theme-color" content="#ffffff">
+	
+    <title>تطبيق سكربت حراج</title>
+
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="bower_components/framework7/dist/css/framework7.ios.min.css">
+    <link rel="stylesheet" href="bower_components/swipebox/src/css/swipebox.css">
+
+    <link rel="stylesheet" href="assets/css/app.css">
+	<link rel="stylesheet" href="assets/themes/blue/style.css" id="theme-style">
+    <link rel="stylesheet" href="" id="theme-style">
+    <link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/heraj-app-font/flaticon.css">
+</head>
+
+<script type="text/template7" id="MoneyTransferTemplate">
+    {{#each this.results}}
+			<li>
+				{{#if this.logo}}
+					<img src="{{../../settings.site_url}}/upload/{{this.logo}}" />
+				{{/if}}
+				<div class="name">
+					{{this.name}}
+				</div>
+				<div class="det">
+					{{this.det}}
+				</div>
+			</li>
+    {{/each}}
+</script>
+<script type="text/template7" id="ProfileTemplate">
+
+            <div class="banner"
+
+			{{#if this.user.mtgr_cover}}style="background-image:url('{{settings.site_url}}/upload/{{this.user.mtgr_cover}}')"{{/if}}
+
+			>
+                <div class="ava-box">
+					{{#if this.user.mtgr_logo}}
+						<img src="{{settings.site_url}}/upload/thumbnail/{{this.user.mtgr_logo}}">
+						{{else}}
+						<img src="assets/img/ava4.jpg" class="ava"/>
+					{{/if}}
+                </div>
+
+                <div class="balance">
+                    <small>{{this.user.user_name}}</small>
+                    <!-- <div>109 200.00</div> -->
+                </div>
+				<div class="row ">
+                    <div class="col-33">
+						{{#if this.is_following}}
+							<a href="javascript:;" class="button button-secondary button-follow  Follow" data-id-user="{{this.user.user_id}}" style="display: none;">
+								<i class="fa fa-plus"></i>
+								متابعة
+							</a>
+							<a href="javascript:;" class="button button-secondary button-follow  Unfollowing" data-id-user="{{this.user.user_id}}">
+								<i class="fa fa-minus"></i>
+								إلغاء متابعة
+							</a>
+						{{else}}
+							<a href="javascript:;" class="button button-secondary button-follow Follow" data-id-user="{{this.user.user_id}}" >
+								<i class="fa fa-plus"></i>
+								متابعة
+							</a>
+							<a href="javascript:;" class="button button-secondary button-follow  Unfollowing" data-id-user="{{this.user.user_id}}"style="display: none;">
+								<i class="fa fa-minus"></i>
+								إلغاء متابعة
+							</a>
+						{{/if}}
+					</div>
+
+                    <div class="col-33">
+							<a href="#" class="button button-secondary button-follow open-popup " data-id-user="{{this.user.user_id}}" data-popup=".popup-sendmsg" >
+								<i class="fa fa-envelope"></i>
+								 رسالة
+							</a>
+					</div>
+                    <div class="col-33">
+							<a href="chat.html?user={{this.user.user_id}}" class="button button-secondary button-follow" >
+								<i class="fa fa-wechat"></i>
+								محادثة
+							</a>
+					</div>
+
+                </div>
+            </div>
+			<!--
+            <header class="small">
+                <div class="row">
+                    <div class="col-33">
+                        SALES:
+                                <span style="float: right">
+                                    All
+                                </span>
+                    </div>
+                    <div class="col-33">
+                                <span>
+                                    Last 30 days
+                                </span>
+                    </div>
+                    <div class="col-33">
+                                <span>
+                                    Last 7 days
+                                </span>
+                    </div>
+                </div>
+            </header>
+			-->
+			<!--
+            <div class="color-box sales-count">
+                <div class="row">
+                    <div class="col-33 text-center">
+                        33 400
+                    </div>
+                    <div class="col-33 text-center">
+                        2 367
+                    </div>
+                    <div class="col-33 text-center">
+                        690
+                    </div>
+                </div>
+            </div>
+			-->
+
+
+			{{#if this.contact}}
+            <div id="user-contact">
+            <header class="small">
+				الإتصال بالعضو :
+            </header>
+            <div class="list-block media-list mt-0 mb-0 nice-list ">
+				{{#each this.contact}}
+                <div  class="item-link item-content">
+                    <div class="item-media">
+						{{#js_compare "this.type  === 'e_mail' "}}
+							<i class="fa fa-envelope-o fa-fw"></i>
+						{{/js_compare}}
+						{{#js_compare "this.type  === 'phone' "}}
+							<i class="fa fa-phone"></i>
+						{{/js_compare}}
+
+						{{#js_compare "this.type  === 'mobile' "}}
+							<i class="fa fa-mobile"></i>
+						{{/js_compare}}
+
+						{{#js_compare "this.type  === 'fax' "}}
+							<i class="fa fa-fax"></i>
+						{{/js_compare}}
+
+						{{#js_compare "this.type  === 'p_b' "}}
+							<i class="fa fa-inbox"></i>
+						{{/js_compare}}
+
+						{{#js_compare "this.type  === 'address' "}}
+							<i class="fa fa-map-marker"></i>
+						{{/js_compare}}
+                    </div>
+                    <div class="item-inner">
+                        <div class="item-title-row">
+							{{#js_compare "this.type  === 'e_mail' "}}
+								بريد إلكترونى
+							{{/js_compare}}
+							{{#js_compare "this.type  === 'phone' "}}
+								هاتف
+							{{/js_compare}}
+
+							{{#js_compare "this.type  === 'mobile' "}}
+								هاتف جوال
+							{{/js_compare}}
+
+							{{#js_compare "this.type  === 'whatsapp' "}}
+								whatsapp
+							{{/js_compare}}
+
+							{{#js_compare "this.type  === 'fax' "}}
+								فاكس
+							{{/js_compare}}
+
+							{{#js_compare "this.type  === 'p_b' "}}
+								صندوق بريد
+							{{/js_compare}}
+
+							{{#js_compare "this.type  === 'address' "}}
+								العنوان
+							{{/js_compare}}
+                        </div>
+                        <div class="date">
+							{{#js_compare "this.type  === 'e_mail' "}}
+								<a href="mailto:{{this.mp}}" target="_system">{{this.mp}}</a>
+							{{/js_compare}}
+							{{#js_compare "this.type  === 'phone' "}}
+								<a href="tel:{{this.mp}}" target="_system">{{this.mp}}</a>
+							{{/js_compare}}
+
+							{{#js_compare "this.type  === 'mobile' "}}
+								<a href="tel:{{this.mp}}" target="_system">{{this.mp}}</a>
+							{{/js_compare}}
+
+							{{#js_compare "this.type  === 'whatsapp' "}}
+								<a href="tel:{{this.mp}}" target="_system">{{this.mp}}</a>
+							{{/js_compare}}
+
+							{{#js_compare "this.type  === 'fax' "}}
+								{{this.mp}}
+							{{/js_compare}}
+
+							{{#js_compare "this.type  === 'p_b' "}}
+								{{this.mp}}
+							{{/js_compare}}
+
+							{{#js_compare "this.type  === 'address' "}}
+								{{this.mp}}
+							{{/js_compare}}
+                        </div>
+                    </div>
+                </div>
+				{{/each}}
+            </div>
+            </div>
+			{{/if}}
+
+
+			{{#if this.ads}}
+            <div id="user-ads">
+            <header class="small">
+				آخر الإعلانات :
+            </header>
+            <div class="list-block media-list mt-0 mb-0 comments-list">
+				{{#each this.ads}}
+                <a href="ads_show.html?id={{this.id}}" class="item-link item-content">
+                    <div class="item-inner">
+                        <div class="name">
+							{{this.title}}
+                        </div>
+                        <div class="text">
+                             {{this.det}}
+                        </div>
+
+
+							<small>
+
+							{{#if this.time_format}}
+								<span>
+									<i class="fa fa-clock-o"></i> {{this.time_format}}
+								</span>
+							{{/if}}
+
+							{{#if this.area_name}}
+								<span>
+									<i class="fa fa-map-marker"></i> {{this.area_name}}
+								</span>
+							{{/if}}
+
+							{{#if this.member_user_name}}
+								<span>
+									<i class="fa fa-user fa-lg"></i> {{this.member_user_name}}
+								</span>
+							{{/if}}
+							<!--
+							{{#if this.service_name}}
+								<span>
+									<i class="fa fa-shield fa-rotate-90"></i> {{this.service_name}}
+								</span>
+							{{/if}}
+							-->
+							</small>
+
+                    </div>
+                    <div class="item-media">
+							{{#if this.last_thumbnail_id}}
+								<img src="{{../../this.settings.site_url}}/resize/{{this.last_thumbnail_id}}/120×90.jpg">
+							{{/if}}
+                    </div>
+                </a>
+				{{else}}
+					<div class="clear"></div>
+					<p class="text-center">لا يوجد إعلانات هنا</p>
+					<div class="clear"></div>
+				{{/each}}
+            </div>
+            </div>
+			{{/if}}
+</script>
+<script type="text/template7" id="SentTemplate">
+	<div class="list-block media-list mt-0 mb-0 nice-list" id="msgs">
+    {{#each this.results}}
+            <a class="item-link item-content" href="msg_sent_show.html?id={{this.id}}">
+                <div class="item-inner {{#js_compare "this.reading  === '0' "}} reading {{/js_compare}}">
+                    <div class="item-title-row">
+						{{this.title}}
+						<i class="fa fa-chevron-left"></i>
+                    </div>
+                    <div class="date">
+						<i class="fa fa-clock-o"></i>
+						{{this.mday_time}}/{{this.mon_time}}/{{this.year_time}}
+
+						<i class="fa fa-user"></i>  {{this.member_to_name}}
+
+						{{#if this.ads_title}}
+							<i class="fa fa-angle-double-left"></i>
+							{{this.ads_title}}
+						{{/if}}
+
+                    </div>
+                </div>
+            </a>
+	{{else}}
+
+		<div class="clear"></div>
+		<p class="text-center">لا يوجد محتوى هنا</p>
+		<div class="clear"></div>
+    {{/each}}
+	</div>
+</script>
+<script type="text/template7" id="NotificationsTemplate">
+	<div class="list-block media-list mt-0 mb-0 nice-list" id="msgs">
+    {{#each this.results}}
+
+			{{#js_compare "this.type  === 'comment' "}}
+            <a class="item-link item-content" href="ads_show.html?id={{this.id_content}}">
+			{{/js_compare}}
+			{{#js_compare "this.type  === 'message' "}}
+            <a class="item-link item-content" href="msg_show.html?id={{this.id_content}}">
+			{{/js_compare}}
+			{{#js_compare "this.type  === 'ad_follow' "}}
+            <a class="item-link item-content" href="ads_show.html?id={{this.id_content}}">
+			{{/js_compare}}
+			{{#js_compare "this.type  === 'auction' "}}
+            <a class="item-link item-content" href="ads_show.html?id={{this.id_content}}">
+			{{/js_compare}}
+			{{#js_compare "this.type  === 'chat' "}}
+            <a class="item-link item-content" href="chat.html?user={{this.id_content}}">
+			{{/js_compare}}
+                <div class="item-inner {{#js_compare "this.reading  === '0' "}} reading {{/js_compare}}">
+                    <div class="item-title-row">
+						{{this.name_type}}
+						<i class="fa fa-chevron-left"></i>
+                    </div>
+                    <div class="date">
+
+						{{#if this.text}}
+							<i class="fa fa-angle-double-left"></i>
+							{{this.text}}
+						{{/if}}
+
+						<i class="fa fa-clock-o"></i>
+
+						 منذ  :
+						{{#each this.time_since_time}}
+							{{this.time}}
+							{{#js_compare "this.name  === 'year' "}}
+								سنة
+							{{/js_compare}}
+							{{#js_compare "this.name  === 'month' "}}
+								 شهر
+							{{/js_compare}}
+							{{#js_compare "this.name  === 'week' "}}
+								أسبوع
+							{{/js_compare}}
+							{{#js_compare "this.name  === 'day' "}}
+								يوم
+							{{/js_compare}}
+							{{#js_compare "this.name  === 'hour' "}}
+								ساعة
+							{{/js_compare}}
+							{{#js_compare "this.name  === 'minute' "}}
+								دقيقة
+							{{/js_compare}}
+							{{#js_compare "this.name  === 'second' "}}
+								ثانية
+							{{/js_compare}}
+						{{/each}}
+                    </div>
+                </div>
+            </a>
+	{{else}}
+
+		<div class="clear"></div>
+		<p class="text-center">لا يوجد محتوى هنا</p>
+		<div class="clear"></div>
+    {{/each}}
+	</div>
+</script>
+<script type="text/template7" id="InboxTemplate">
+	<div class="list-block media-list mt-0 mb-0 nice-list" id="msgs">
+    {{#each this.results}}
+            <a class="item-link item-content" href="msg_show.html?id={{this.id}}">
+                <div class="item-inner {{#js_compare "this.reading  === '0' "}} reading {{/js_compare}}">
+                    <div class="item-title-row">
+						{{this.title}}
+						<i class="fa fa-chevron-left"></i>
+                    </div>
+                    <div class="date">
+						<i class="fa fa-clock-o"></i>
+						{{this.mday_time}}/{{this.mon_time}}/{{this.year_time}}
+
+						<i class="fa fa-user"></i>  {{this.member_from_name}}
+
+						{{#if this.ads_title}}
+							<i class="fa fa-angle-double-left"></i>
+							{{this.ads_title}}
+						{{/if}}
+
+                    </div>
+                </div>
+            </a>
+	{{else}}
+
+		<div class="clear"></div>
+		<p class="text-center">لا يوجد محتوى هنا</p>
+		<div class="clear"></div>
+    {{/each}}
+	</div>
+</script>
+<script type="text/template7" id="ShowMsgSentTemplate">
+	{{#if this.results}}
+    <div class="content-ad  mt-5">
+        <h1 class="text-center">{{this.results.title}}</h1>
+		<small class="page-meta">
+
+			<i class="fa fa-user"></i> الرسالة إلى :
+			<a href="user.profile.html?user={{this.results.to}}">
+				{{this.results.member_to_name}}
+			</a>
+			{{#if this.results.ads_title}}
+				<i class="fa fa-angle-double-left"></i>
+				{{this.results.ads_title}}
+			{{/if}}
+
+
+			<i class="fa fa-clock-o"></i>
+			 منذ  :
+			{{#each this.results.time_since_time}}
+				{{this.time}}
+				{{#js_compare "this.name  === 'year' "}}
+					سنة
+				{{/js_compare}}
+				{{#js_compare "this.name  === 'month' "}}
+					 شهر
+				{{/js_compare}}
+				{{#js_compare "this.name  === 'week' "}}
+					أسبوع
+				{{/js_compare}}
+				{{#js_compare "this.name  === 'day' "}}
+					يوم
+				{{/js_compare}}
+				{{#js_compare "this.name  === 'hour' "}}
+					ساعة
+				{{/js_compare}}
+				{{#js_compare "this.name  === 'minute' "}}
+					دقيقة
+				{{/js_compare}}
+				{{#js_compare "this.name  === 'second' "}}
+					ثانية
+				{{/js_compare}}
+			{{/each}}
+			فى : {{this.results.mday_time}}/{{this.results.mon_time}}/{{this.results.year_time}}
+
+		</small>
+		<div class="clear"></div>
+		{{#if this.results.msg}}
+		<div class="ckeditor-code">
+			{{this.results.msg}}
+		</div>
+		{{/if}}
+		<div class="clear"></div>
+
+    </div>
+	{{else}}
+
+		<div class="clear"></div>
+		<p class="text-center">لا يوجد محتوى هنا</p>
+		<div class="clear"></div>
+    {{/if}}
+</script>
+<script type="text/template7" id="ShowMsgTemplate">
+	{{#if this.results}}
+    <div class="content-ad  mt-5">
+        <h1 class="text-center">{{this.results.title}}</h1>
+		<small class="page-meta">
+
+			<i class="fa fa-user"></i> الرسالة من :
+
+			<a href="user.profile.html?user={{this.results.from}}">
+			{{this.results.member_from_name}}
+			</a>
+			{{#if this.results.ads_title}}
+				<i class="fa fa-angle-double-left"></i>
+				{{this.results.ads_title}}
+			{{/if}}
+
+
+			<i class="fa fa-clock-o"></i>
+			 منذ  :
+			{{#each this.results.time_since_time}}
+				{{this.time}}
+				{{#js_compare "this.name  === 'year' "}}
+					سنة
+				{{/js_compare}}
+				{{#js_compare "this.name  === 'month' "}}
+					 شهر
+				{{/js_compare}}
+				{{#js_compare "this.name  === 'week' "}}
+					أسبوع
+				{{/js_compare}}
+				{{#js_compare "this.name  === 'day' "}}
+					يوم
+				{{/js_compare}}
+				{{#js_compare "this.name  === 'hour' "}}
+					ساعة
+				{{/js_compare}}
+				{{#js_compare "this.name  === 'minute' "}}
+					دقيقة
+				{{/js_compare}}
+				{{#js_compare "this.name  === 'second' "}}
+					ثانية
+				{{/js_compare}}
+			{{/each}}
+			فى : {{this.results.mday_time}}/{{this.results.mon_time}}/{{this.results.year_time}}
+
+		</small>
+		<div class="clear"></div>
+		{{#if this.results.msg}}
+		<div class="ckeditor-code">
+			{{this.results.msg}}
+		</div>
+		{{/if}}
+		<div class="clear"></div>
+
+    </div>
+	{{else}}
+
+		<div class="clear"></div>
+		<p class="text-center">لا يوجد محتوى هنا</p>
+		<div class="clear"></div>
+    {{/if}}
+</script>
+<script type="text/template7" id="chatsTemplate">
+
+	<div class="list-block media-list mt-0 mb-0 nice-list" id="msgs">
+    {{#each this.users}}
+            <a class="item-link item-content" href="chat.html?user={{this.from}}">
+                <div class="item-inner">
+                    <div class="item-title-row">
+						{{this.user}}
+						<span class="badge badge-primary">{{this.unread}}</span>
+						<i class="fa fa-chevron-left"></i>
+                    </div>
+                    <div class="date">
+						<i class="fa fa-wechat"></i>
+						{{this.last_msg}}
+                    </div>
+                </div>
+            </a>
+	{{else}}
+
+		<div class="clear"></div>
+		<p class="text-center">لا يوجد محتوى هنا</p>
+		<div class="clear"></div>
+    {{/each}}
+	</div>
+</script>
+<script type="text/template7" id="bannersTemplate">
+    {{#each this.results}}
+        <div class="banner-row">
+			{{#js_compare "this.ad_type  === '2' "}}
+				{{#if ../this.ad_img}}
+					<a href="{{../../../settings.site_url}}/ad.php?id={{../this.id}}" target="_blank">
+						<img src="{{../../../settings.site_url}}/upload/{{../this.ad_img}}">
+					</a>
+				{{/if}}
+			{{/js_compare}}
+
+			{{#js_compare "this.ad_type  === '1' "}}
+				<a href="{{../../settings.site_url}}/ad.php?id={{this.id}}" target="_blank">{{this.ad_name}}</a>
+			{{/js_compare}}
+
+        </div>
+		<div class="clear"></div>
+	{{else}}
+		<div class="clear"></div>
+		<!--
+		<p class="text-center">لا يوجد بنرات إعلانية</p>
+		<div class="clear"></div>
+		-->
+    {{/each}}
+</script>
+<script type="text/template7" id="shopsTemplate">
+    {{#each this.results}}
+            <div class="banner"
+
+			{{#if this.mtgr_cover}}style="background-image:url('{{../../settings.site_url}}/upload/{{this.mtgr_cover}}')"{{/if}}
+
+			>
+                <div class="ava-box">
+					{{#if this.mtgr_logo}}
+						<img src="{{../../settings.site_url}}/upload/thumbnail/{{this.mtgr_logo}}">
+						{{else}}
+						<img src="assets/img/ava4.jpg" class="ava"/>
+					{{/if}}
+                </div>
+
+                <div class="balance">
+                    <small>{{this.mtgr_name}}</small>
+                    <!-- <div>109 200.00</div> -->
+                </div>
+				<div class="row ">
+						<a href="user.profile.html?user={{this.user_id}}" class="button button-secondary button-go-mrgr" >
+							<i class="fa fa-angle-double-left"></i>
+							زيارة المتجر
+						</a>
+
+                </div>
+            </div>
+		<div class="clear"></div>
+
+
+	{{else}}
+		<div class="clear"></div>
+		<p class="text-center">لا يوجد متاجر</p>
+		<div class="clear"></div>
+    {{/each}}
+</script>
+<script type="text/template7" id="adsTemplate">
+    {{#each this.results}}
+		<li class="swipeout">
+			<div class="swipeout-content">
+				<div class="item-content no-padding">
+					<div class="item-inner blog-list row">
+
+						<a href="ads_show.html?id={{this.id}}">
+							<div class="image ">
+								<div class="img ">
+									{{#if this.last_thumbnail_id}}
+									<img src="{{../../settings.site_url}}/resize/{{this.last_thumbnail_id}}/364×275.jpg">
+									{{/if}}
+								</div>
+							</div>
+							<div class="text ">
+								<h4 class="title mt-5 mb-0">
+									{{this.title}}
+								</h4>
+								<div class="date">
+									<i class="fa fa-clock-o"></i> منذ  :
+									{{#each this.time_since_time}}
+									{{this.time}}
+									{{#js_compare "this.name  === 'year' "}}
+									سنة
+									{{/js_compare}}
+									{{#js_compare "this.name  === 'month' "}}
+									شهر
+									{{/js_compare}}
+									{{#js_compare "this.name  === 'week' "}}
+									أسبوع
+									{{/js_compare}}
+									{{#js_compare "this.name  === 'day' "}}
+									يوم
+									{{/js_compare}}
+									{{#js_compare "this.name  === 'hour' "}}
+									ساعة
+									{{/js_compare}}
+									{{#js_compare "this.name  === 'minute' "}}
+									دقيقة
+									{{/js_compare}}
+									{{#js_compare "this.name  === 'second' "}}
+									ثانية
+									{{/js_compare}}
+									{{/each}}
+									{{#if this.time_format}}
+									فى {{this.time_format}}
+									{{/if}}
+
+								</div>
+								<small >
+									{{#if this.member_user_name}}
+									<span>
+										<i class="fa fa-user fa-lg"></i> {{this.member_user_name}}
+									</span>
+									{{/if}}
+
+									{{#if this.area_name}}
+									<span>
+										<i class="fa fa-map-marker"></i> {{this.area_name}}
+									</span>
+									{{/if}}
+									<!--
+								{{#if this.service_name}}
+									<span>
+										<i class="fa fa-shield fa-rotate-90"></i> {{this.service_name}}
+									</span>
+								{{/if}}
+								-->
+								</small>
+
+								<p>{{this.det}}</p>
+
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+	<!--
+			<div class="swipeout-actions-left">
+				<a href="#" class="action-red js-add-to-fav"><i class="fa fa-heart-o"></i></a>
+			</div>
+	-->
+		</li>
+	{{else}}
+
+		<div class="clear"></div>
+		<p class="text-center">لا يوجد إعلانات هنا</p>
+		<div class="clear"></div>
+    {{/each}}
+
+</script>
+<script type="text/template7" id="activePopoverTemplate">
+
+  <div class="popover popover-active">
+    <div class="popover-angle"></div>
+    <div class="popover-inner">
+      <div class="list-block list-report ">
+        <ul>
+    {{#each this.array}}
+		<li>
+			<a href="javascript:;" class="send-active-msg" data-type="{{this.i}}">
+				{{this.m}}
+			</a>
+		</li>
+    {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</script>
+<script type="text/template7" id="ReportPopoverTemplate">
+
+  <div class="popover popover-report">
+    <div class="popover-angle"></div>
+    <div class="popover-inner">
+      <div class="list-block list-report ">
+        <ul>
+    {{#each this.array}}
+		<li id-ads-content="{{../this.id}}">
+			<a href="javascript:;" data-id="{{../this.id}}" data-type="ads" data-report="true" data-report-reason="{{this.i}}">
+				{{this.m}}
+			</a>
+		</li>
+    {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</script>
+<script type="text/template7" id="ShowAdsToolbarTemplate">
+	<div class="toolbar-inner">
+
+		<a href="#" class="link share"  data-link="{{this.settings.site_url}}/ads_show.php?show={{this.results.id}}" data-title="{{this.results.title}}"  >
+			<i class="flaticon-share"></i>
+			<span>شارك</span>
+		</a>
+
+		<a href="#"  class="link report">
+			<i class="flaticon-report"></i>
+			<span>إبلاغ</span>
+		</a>
+
+		<a href="#"  class="link ">
+			{{#if this.results.in_favorit}}
+				<i href="javascript:;" class="Ad2Favorit flaticon-favorite-o" data-id="{{this.results.id}}" style="display: none;"></i>
+				<i href="javascript:;" class="Dl2Favorit flaticon-favorite"  data-id="{{this.results.id}}"></i>
+			{{else}}
+				<i href="javascript:;" class="Ad2Favorit flaticon-favorite-o" data-id="{{this.results.id}}" ></i>
+				<i href="javascript:;" class="Dl2Favorit flaticon-favorite" data-id="{{this.results.id}}"style="display: none;"></i>
+			{{/if}}
+			<span>المفضلة</span>
+		</a>
+
+
+		<a href="#" data-id-ads="{{this.results.id}}" data-vote-ads="down" class="link">
+			<i class="fa fa-thumbs-down"></i> <span class="vote-number">{{this.results.votes_down}}</span>
+		</a>
+
+		<a href="#" data-id-ads="{{this.results.id}}" data-vote-ads="up" class="link">
+			<i class="fa fa-thumbs-up"></i> <span class="vote-number">{{this.results.votes_up}}</span>
+		</a>
+		<!--
+		<a href="contact.html" class="link">
+			<i class="flaticon-e-mail"></i>
+			<span>إتصل بنا</span>
+		</a>
+		<a href="ads.html?search=open" class="link">
+			<i class="flaticon-tool-1"></i>
+			<span>البحث</span>
+		</a>
+		-->
+		<!--
+		<a href="page_show.html?show=1" class="link">
+			<i class="flaticon-bulb"></i>
+			<span>من نحن</span>
+		</a>
+		<a href="shops.html" class="link">
+			<i class="fa fa-building-o"></i>
+			<span> المتاجر </span>
+		</a>
+		<a href="banners.html" class="link">
+			<i class="fa fa-external-link-square"></i>
+			<span> بنرات  </span>
+		</a>
+		<a href="index.html" class="link">
+			<i class="fa fa-th"></i>
+			<span> الرئيسية  </span>
+		</a>
+		-->
+
+	</div>
+</script>
+<script type="text/template7" id="ShowAdsTemplate">
+<!--
+	{{#if this.results.last_thumbnail_id}}
+		<img src="{{settings.site_url}}/resize/{{this.results.last_thumbnail_id}}/875×540.jpg" class="ad-pic">
+	{{/if}}
+
+-->
+
+    <div class="content-ad  mt-5">
+        <h1>
+
+			<!--
+			<span class="Favorit">
+				{{#if this.results.in_favorit}}
+					<a href="javascript:;" class="Ad2Favorit" data-id="{{this.results.id}}" style="display: none;"><i class="fa fa-star-o"></i></a>
+					<a href="javascript:;" class="Dl2Favorit"  data-id="{{this.results.id}}"><i class="fa fa-star"></i></a>
+				{{else}}
+					<a href="javascript:;" class="Ad2Favorit" data-id="{{this.results.id}}" ><i class="fa fa-star-o"></i></a>
+					<a href="javascript:;" class="Dl2Favorit" data-id="{{this.results.id}}"style="display: none;"><i class="fa fa-star"></i></a>
+				{{/if}}
+			</span>
+			--->
+
+			{{this.results.title}}
+		</h1>
+
+		<div class="clear"></div>
+		<!--
+		<div class="row">
+			<div class="col-50">
+
+				<div  data-id-ads="{{this.results.id}}" data-vote-ads="up" class="col-50">
+					<div class="btn-like"><i class="fa fa-thumbs-up"></i> أعجبنى <em></em><span class="vote-number">{{this.results.votes_up}}</span></div>
+				</div>
+
+			</div>
+			<div class="col-50">
+
+				<div data-id-ads="{{this.results.id}}" data-vote-ads="down" class="col-50">
+					<div class="btn-dislike"><i class="fa fa-thumbs-down"></i> لم يُعجبنى <em></em><span class="vote-number">{{this.results.votes_down}}</span></div>
+				</div>
+
+			</div>
+		</div>
+		-->
+		<div class="clear"></div>
+		<div class="row">
+
+			{{#if this.results.id}}
+				<div class="col-50">
+					<i class="fa fa-sort-numeric-desc"></i> <span> إعلان رقم </span> :  {{this.results.id}}
+				</div>
+			{{/if}}
+
+			{{#if this.results.time}}
+				<div class="col-50">
+				<i class="fa fa-clock-o"></i>
+				<span> منذ  :</span>
+				{{#each this.results.time_since_time}}
+					{{this.time}}
+					{{#js_compare "this.name  === 'year' "}}
+						سنة
+					{{/js_compare}}
+					{{#js_compare "this.name  === 'month' "}}
+						 شهر
+					{{/js_compare}}
+					{{#js_compare "this.name  === 'week' "}}
+						أسبوع
+					{{/js_compare}}
+					{{#js_compare "this.name  === 'day' "}}
+						يوم
+					{{/js_compare}}
+					{{#js_compare "this.name  === 'hour' "}}
+						ساعة
+					{{/js_compare}}
+					{{#js_compare "this.name  === 'minute' "}}
+						دقيقة
+					{{/js_compare}}
+					{{#js_compare "this.name  === 'second' "}}
+						ثانية
+					{{/js_compare}}
+				{{/each}}
+				فى : {{this.results.mday_time}}/{{this.results.mon_time}}/{{this.results.year_time}}
+
+				</div>
+			{{/if}}
+
+			{{#if this.results.country_name}}
+				<div class="col-50">
+					<i class="fa fa-map-marker"></i><span> البلد </span>  {{this.results.country_name}}
+				</div>
+			{{/if}}
+
+			{{#if this.results.area_name}}
+				<div class="col-50">
+					<i class="fa fa-map-marker"></i> <span> المنطقة </span> {{this.results.area_name}}
+				</div>
+			{{/if}}
+
+			{{#if this.results.categorie_name}}
+				<div class="col-50">
+					<i class="fa fa-angle-double-left"></i> <span> القسم </span> {{this.results.categorie_name}}
+				</div>
+			{{/if}}
+
+			{{#if this.results.brand_name}}
+				<div class="col-50">
+					<i class="fa fa-angle-left"></i> <span> التصنيف </span> {{this.results.brand_name}}
+				</div>
+			{{/if}}
+
+			{{#if this.results.typ_name}}
+				<div class="col-50">
+					<i class="fa fa-caret-square-o-left"></i> <span> النوع </span> {{this.results.typ_name}}
+				</div>
+			{{/if}}
+
+			{{#if this.results.model_name}}
+				<div class="col-50">
+					<i class="fa fa-chevron-circle-left"></i> <span> الموديل </span> {{this.results.model_name}}
+				</div>
+			{{/if}}
+				
+			{{#js_compare "this.results.price > '0' "}}
+					<div class="col-50">
+						<i class="fa fa-money"></i><span> السعر </span>  {{this.results.price}}  {{this.results.currency_type_name}}
+					</div>
+			{{/js_compare}}
+
+
+			{{#if this.results.delivery_term}}
+				<div class="col-50">
+					<i class="fa fa-clock-o fa-fw"></i> {{this.results.delivery_term}}
+				</div>
+			{{/if}}
+
+			{{#if this.results.service_name}}
+				<div class="col-50">
+					<i class="fa fa-toggle-on"></i> <span> الخدمة </span> {{this.results.service_name}}
+				</div>
+			{{/if}}
+
+		</div>
+		<div class="clear"></div>
+		{{#if this.results.text}}
+		<div class="ckeditor-code">
+			{{this.results.text}}
+		</div>
+		{{/if}}
+
+		<div class="clear"></div>
+
+
+			{{#js_compare "this.results.auction_start  > '0' "}}
+            <div id="user-contact">
+				<div class="card ks-facebook-card user-card">
+					<div class="card-header">
+						المزاد
+					</div>
+					<div class="card-content">
+
+						<div class="auction_start">
+							المزاد يبداء من : {{this.results.auction_start}} ريال
+							,
+							ينتهى فى : {{this.results.date_auction_end_getdate.year}}/{{this.results.date_auction_end_getdate.mon}}/{{this.results.date_auction_end_getdate.mday}}
+						</div>
+						{{#js_compare "this.results.add_auction  === '1' "}}
+						<div class="list-block inset">
+							<div class="list-block bidding-box" data-id-ads="{{this.results.id}}">
+								<div class="row">
+									<div class="col-30">
+									</div>
+									<div class="col-40">
+										<input type="text" class="amount" placeholder="ضع المبلغ هنا">
+									</div>
+									<div class="col-30">
+									</div>
+								</div>
+									<div class="clear"></div>
+								<div class="row">
+									<div class="col-30">
+									</div>
+									<div class="col-40">
+										<input type="submit" name="submit" class="button button-secondary send-bidding" value="إرسال المزايدة">
+									</div>
+									<div class="col-30">
+									</div>
+								</div>
+							</div>
+						</div>
+						{{/js_compare}}
+
+						{{#if this.auctions}}
+							<header class="small">
+								مزايدات الأعضاء
+							</header>
+							<div class="list-block list-auctions ">
+							{{#each this.auctions}}
+								<div class="item-link item-content">
+									<div class="item-inner">
+										<div class="item-title-row">
+											<a href="user.profile.html?user={{this.id_user}}">{{this.member_user_name}}</a>
+										</div>
+										<div class="date">
+											{{this.amount}} ريال
+										</div>
+									</div>
+								</div>
+							{{/each}}
+							</div>
+						{{/if}}
+
+					</div>
+				</div>
+			</div>
+			{{/js_compare}}
+
+			{{#if this.results.mobile}}
+			<div class="clear"></div>
+            <div id="user-contact">
+			<div class="card ks-facebook-card user-card">
+				<div class="card-content">
+				<div class="list-block media-list mt-0 mb-0 nice-list ">
+					<div class="item-link item-content">
+						<div class="item-media">
+									<i class="fa fa-mobile"></i>
+						</div>
+						<div class="item-inner">
+							<div class="item-title-row">
+								جوال التواصل
+							</div>
+							<div class="date">
+								<a href="tel:{{this.results.member_mobile}}" target="_system">{{this.results.mobile}}</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+			</div>
+            </div>
+			{{/if}}
+			
+		{{#js_compare "this.results.member_user_name"}}
+			<div class="clear"></div>
+            <div id="user-contact">
+			<div class="card ks-facebook-card user-card">
+				<div class="card-header">
+					بيانات العضو
+				</div>
+				<div class="card-content">
+
+				<div class="list-block media-list mt-0 mb-0 nice-list ">
+					<div class="item-link item-content">
+						<div class="item-media">
+						{{#if this.results.member_mtgr_logo}}
+
+							<img width="29" height="29" src="{{../settings.site_url}}/upload/thumbnail/{{this.results.member_mtgr_logo}}">
+
+							{{else}}
+
+								<i class="fa fa-user fa-lg"></i>
+						{{/if}}
+						</div>
+						<div class="item-inner">
+							<div class="item-title-row">
+								العضو
+							</div>
+							<div class="date">
+								{{#if this.results.member_user_name}}
+									<a href="user.profile.html?user={{this.results.id_user}}"> {{this.results.member_user_name}}</a>
+								{{/if}}
+							</div>
+						</div>
+					</div>
+								{{#if this.results.member_user_country}}
+					<div class="item-link item-content">
+						<div class="item-media">
+									<i class="fa fa-mobile"></i>
+						</div>
+						<div class="item-inner">
+							<div class="item-title-row">
+								بلد العضو
+							</div>
+							<div class="date">
+									{{this.results.member_user_country}}
+									{{this.results.member_in_cont}}
+							</div>
+						</div>
+					</div>
+					{{/if}}
+
+					{{#if this.results.member_mobile}}
+					<div class="item-link item-content">
+						<div class="item-media">
+									<i class="fa fa-mobile"></i>
+						</div>
+						<div class="item-inner">
+							<div class="item-title-row">
+								جوال
+							</div>
+							<div class="date">
+								<a href="tel:{{this.results.member_mobile}}" target="_system">{{this.results.member_mobile}}</a>
+							</div>
+						</div>
+					</div>
+					{{/if}}
+
+
+
+					{{#if this.user.results}}
+					{{#js_compare "this.user.results.user_id == this.results.id_user"}}
+					<div class="row">
+
+						{{#js_compare "this.results.activ == 1 || this.results.activ == 0"}}
+						<!-- <div class="col-50">
+							<a class="button button-secondary Delete_Ad" href="#" data-id="{{this.results.id}}">
+								<i class="fa fa-trash-o fa-lg"></i> حذف الإعلان
+							</a>
+						</div> -->
+
+						<div class="col-100">
+							<a class="button button-secondary" href="edit.ads.html?id={{this.results.id}}">
+								<i class="fa fa-pencil fa-fw"></i> تعديل الإعلان
+							</a>
+						</div>
+						{{else}}
+						<!--
+						<div class="col-100">
+							<a class="button button-secondary Delete_Ad" href="#" data-id="{{this.results.id}}">
+								<i class="fa fa-trash-o fa-lg"></i> حذف الإعلان
+							</a>
+						</div>-->
+						{{/js_compare}}
+
+					</div>
+					{{/js_compare}}
+					{{#js_compare "this.user.results.user_id != this.results.id_user"}}
+
+						<div class="row mt-0 mb-0">
+							<div class="col-50">
+								<a href="#" class="button button-secondary button-follow open-popup " data-id-user="{{this.results.id_user}}" data-popup=".popup-sendmsg" >
+									<i class="fa fa-envelope"></i>
+									رسالة
+								</a>
+							</div>
+							<div class="col-50">
+								<a href="chat.html?user={{this.results.id_user}}" class="button button-secondary button-follow" >
+									<i class="fa fa-wechat"></i>
+									محادثة
+								</a>
+							</div>
+						</div>
+					{{/js_compare}}
+					{{/if}}
+
+
+
+					{{#js_compare "this.mtgr_contact.length > '0' "}}
+					<header class="small">
+						الإتصال بالعضو :
+					</header>
+					{{#each this.mtgr_contact}}
+						<div  class="item-link item-content">
+							<div class="item-media">
+								{{#js_compare "this.type  === 'e_mail' "}}
+									<i class="fa fa-envelope-o fa-fw"></i>
+								{{/js_compare}}
+								{{#js_compare "this.type  === 'phone' "}}
+									<i class="fa fa-phone"></i>
+								{{/js_compare}}
+
+								{{#js_compare "this.type  === 'mobile' "}}
+									<i class="fa fa-mobile"></i>
+								{{/js_compare}}
+
+								{{#js_compare "this.type  === 'fax' "}}
+									<i class="fa fa-fax"></i>
+								{{/js_compare}}
+
+								{{#js_compare "this.type  === 'p_b' "}}
+									<i class="fa fa-inbox"></i>
+								{{/js_compare}}
+
+								{{#js_compare "this.type  === 'address' "}}
+									<i class="fa fa-map-marker"></i>
+								{{/js_compare}}
+									{{#js_compare "this.type  === 'whatsapp' "}}
+										<i class="fa fa-angle-double-left"></i>
+									{{/js_compare}}
+
+									{{#js_compare "this.type  === 'line' "}}
+										<i class="fa fa-angle-double-left"></i>
+									{{/js_compare}}
+									{{#js_compare "this.type  === 'snapchat' "}}
+										<i class="fa fa-angle-double-left"></i>
+									{{/js_compare}}
+									{{#js_compare "this.type  === 'bbm' "}}
+										<i class="fa fa-angle-double-left"></i>
+									{{/js_compare}}
+							</div>
+							<div class="item-inner">
+								<div class="item-title-row">
+									{{#js_compare "this.type  === 'e_mail' "}}
+										بريد إلكترونى
+									{{/js_compare}}
+									{{#js_compare "this.type  === 'phone' "}}
+										هاتف
+									{{/js_compare}}
+
+									{{#js_compare "this.type  === 'mobile' "}}
+										هاتف جوال
+									{{/js_compare}}
+
+									{{#js_compare "this.type  === 'whatsapp' "}}
+										whatsapp
+									{{/js_compare}}
+
+									{{#js_compare "this.type  === 'fax' "}}
+										فاكس
+									{{/js_compare}}
+
+									{{#js_compare "this.type  === 'p_b' "}}
+										صندوق بريد
+									{{/js_compare}}
+
+									{{#js_compare "this.type  === 'address' "}}
+										العنوان
+									{{/js_compare}}
+									{{#js_compare "this.type  === 'line' "}}
+										line
+									{{/js_compare}}
+									{{#js_compare "this.type  === 'snapchat' "}}
+										snapchat
+									{{/js_compare}}
+									{{#js_compare "this.type  === 'bbm' "}}
+										bbm
+									{{/js_compare}}
+								</div>
+								<div class="date">
+									{{#js_compare "this.type  === 'e_mail' "}}
+										<a href="mailto:{{this.mp}}" target="_system">{{this.mp}}</a>
+									{{/js_compare}}
+									{{#js_compare "this.type  === 'phone' "}}
+										<a href="tel:{{this.mp}}" target="_system">{{this.mp}}</a>
+									{{/js_compare}}
+
+									{{#js_compare "this.type  === 'mobile' "}}
+										<a href="tel:{{this.mp}}" target="_system">{{this.mp}}</a>
+									{{/js_compare}}
+
+									{{#js_compare "this.type  === 'whatsapp' "}}
+										<a href="tel:{{this.mp}}" target="_system">{{this.mp}}</a>
+									{{/js_compare}}
+
+									{{#js_compare "this.type  === 'fax' "}}
+										{{this.mp}}
+									{{/js_compare}}
+
+									{{#js_compare "this.type  === 'p_b' "}}
+										{{this.mp}}
+									{{/js_compare}}
+
+									{{#js_compare "this.type  === 'line' "}}
+										<a href="tel:{{this.mp}}" target="_system">{{this.mp}}</a>
+									{{/js_compare}}
+
+									{{#js_compare "this.type  === 'snapchat' "}}
+										{{this.mp}}
+									{{/js_compare}}
+
+									{{#js_compare "this.type  === 'bbm' "}}
+										{{this.mp}}
+									{{/js_compare}}
+								</div>
+							</div>
+						</div>
+					{{/each}}
+			{{/js_compare}}
+				</div>
+				</div>
+			</div>
+            </div>
+		{{/js_compare}}
+
+		<div class="clear"></div>
+
+		{{#if this.images}}
+    <ul class="gallery-list gallery-3col">
+		{{#each this.images}}
+        <li>
+            <span href="{{../settings.site_url}}/resize/crop/{{this.id}}/875×540.jpg" class="zoom">
+				<img src="{{../settings.site_url}}/resize/crop/{{this.id}}/120×90.jpg">
+            </span>
+        </li>
+		{{/each}}
+    </ul>
+		{{/if}}
+
+		<div class="clear"></div>
+		<!--
+		{{#if this.results.video}}
+			<br>
+			<video width="100%" poster="" id="video201499235326" controls="controls">
+				<source type="video/mp4" src="{{../settings.site_url}}/ads_download_video.php?id={{this.results.id}}&play=1"></source>
+				Your browser doesn't support video.<br> Please download the file: <a href="{{../settings.site_url}}/ads_download_video.php?id={{this.results.id}}&play=1">video/mp4</a>
+			</video>
+		{{/if}}
+		-->
+		<div class="clear"></div>
+		<div class="list-banners"></div>
+		<div class="clear"></div>
+
+    </div>
+
+	{{#if this.comments}}
+	<div class="content-block mt-0 mb-0">
+		<div class="buttons-row">
+			<a href="#tab1" class="tab-link active button button-secondary">التعليقات</a>
+			<a href="#tab2" class="tab-link button button-secondary">إضافة تعليق</a>
+		</div>
+	</div>
+	<div class="tabs-animated-wrap">
+		<div class="tabs">
+			<div id="tab1" class="tab active">
+
+				<div class="list-block mt-10 comments-box">
+					<ul>
+
+		{{#each this.comments}}
+
+						<li class="swipeout">
+							<div class="swipeout-content">
+								<div class="item-content">
+									<div class="item-inner comments-list">
+										<div class="image">
+											<span class="ava">
+												<a href="user.profile.html?user={{this.id_user}}">
+													<img src="{{../settings.site_url}}/upload/thumbnail/{{this.member_mtgr_logo}}">
+												</a>
+											</span>
+										</div>
+										<div class="text">
+											<div class="info">
+												<span class="nick">
+												<a href="user.profile.html?user={{this.id_user}}">
+												{{this.member_user_name}}
+												</a>
+												</span>
+												<span class="data"> {{this.year_time}}/{{this.mon_time}}/{{this.mday_time}} </span>
+											</div>
+											<div class="comment">
+												{{this.comment}}
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--
+							<div class="swipeout-actions-right">
+								<a href="#" class="action-green js-up">
+									<i class="fa fa-thumbs-o-up"></i>
+								</a>
+								<a href="#" class="action-red js-down">
+									<i class="fa fa-thumbs-o-down"></i>
+								</a>
+							</div>
+							-->
+						</li>
+				{{else}}
+					<div class="clear"></div>
+					<p class="text-center">كُن أول من يُعلق <a href="#tab2" class="tab-link ">إضافة تعليق</a></p>
+					<div class="clear"></div>
+		{{/each}}
+
+					</ul>
+				</div>
+
+			</div>
+			<div id="tab2" class="tab">
+
+				<div class="content-block mt-0 mb-0">
+
+					<div class="forms">
+						<form method="post" novalidate="novalidate">
+
+							<div class="form-row">
+								<div class="input-text">
+									<input type="hidden" name="art" value="{{this.results.id}}">
+									<textarea name="comment" placeholder="التعليق" required></textarea>
+								</div>
+							</div>
+							<div class="form-row">
+								<div class="input-submit">
+									<a href="#" class="button button-big js-add-comment-submit button-secondary button-primary">إضافة التعليق</a>
+								</div>
+							</div>
+						</form>
+					</div>
+	<br>
+	<br>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{/if}}
+
+		<div class="clear"></div>
+</script>
+<script type="text/template7" id="ShowPageTemplate">
+
+	{{#if this.results.last_thumbnail_id}}
+		<img src="{{settings.site_url}}/resize/{{this.results.last_thumbnail_id}}/875×540.jpg">
+	{{/if}}
+
+
+    <div class="content-ad  mt-5">
+        <h1 class="text-center">{{this.results.title}}</h1>
+
+		<div class="clear"></div>
+		<div class="clear"></div>
+		{{#if this.results.text}}
+		<div class="ckeditor-code">
+			{{this.results.text}}
+		</div>
+		{{/if}}
+		<div class="clear"></div>
+
+
+    </div>
+
+</script>
+<script type="text/template7" id="CategoriesTemplate">
+
+    <div class="row text-center">
+
+		{{#if this}}
+		{{#each this}}
+        <div class="col-33 item">
+            <a href="ads.html?categorie={{this.id}}" class="menu-link">
+                <img src="{{../settings.site_url}}/upload/{{this.image}}" >
+                <span>{{this.name}}</span>
+            </a>
+        </div>
+		{{/each}}
+		{{/if}}
+
+    </div>
+
+</script>
+<script type="text/template7" id="BrandsTemplate">
+
+	<div class="accordion-list brands-list ">
+
+		{{#if this.results}}
+		{{#each this.results}}
+			<div class="accordion-item accordion-item-expanded">
+				<div class="accordion-item-toggle">
+					{{this.name}}
+				</div>
+				<div class="accordion-item-content">
+
+					{{#if this.brands}}
+					<ul class="gallery-list brand-list gallery-3col">
+
+					{{#each this.brands}}
+						<li>
+							<a title="{{this.name}}" href="ads.html?brand={{this.id}}">
+							<button>
+								<img src="{{../../../this.settings.site_url}}/upload/{{this.image}}" >
+							</button>
+							</a>
+						</li>
+					{{/each}}
+					</ul>
+					{{/if}}
+
+				</div>
+			</div>
+		{{/each}}
+		{{/if}}
+	</div>
+
+
+</script>
+
+<script type="text/template7" id="CategoriesListTemplate">
+
+		{{#if this}}
+		{{#each this}}
+                    <li>
+                        <a href="ads.html?categorie={{this.id}}" class="item-link close-panel item-content">
+                            <div class="item-media">
+                                <i class="fa fa-chevron-right"></i>
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-title">{{this.name}}</div>
+                            </div>
+                        </a>
+                    </li>
+		{{/each}}
+		{{/if}}
+                    <li>
+                        <a href="ads.html" class="item-link close-panel item-content">
+                            <div class="item-media">
+                               <i class="fa fa-archive"></i>
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-title">أرشيف الإعلانات</div>
+                            </div>
+                        </a>
+                    </li>
+
+</script>
+
+<script type="text/template7" id="pagesTemplate">
+
+		{{#if this}}
+		{{#each this}}
+                    <li>
+                        <a href="page_show.html?show={{this.id}}" class="item-link close-panel item-content">
+                            <div class="item-media">
+                                <i class="fa fa-angle-double-right"></i>
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-title">{{this.title}}</div>
+                            </div>
+                        </a>
+                    </li>
+		{{/each}}
+		{{/if}}
+
+</script>
+<script type="text/template7" id="contact_usTemplate">
+
+	<div class="row mb-30 contact_us-list">
+		{{#if this}}
+		{{#each this}}
+            <div class="col-100">
+                <div class="content-block mt-0 mb-0">
+                    <blockquote>
+
+						{{#js_compare "this.type  === 'e_mail' "}}
+							<div class="row-name">
+								<i class="fa fa-envelope-o fa-fw"></i> إيميل
+							</div>
+							<a href="mailto:{{this.mp}}" target="_system">{{this.mp}}</a>
+						{{/js_compare}}
+						{{#js_compare "this.type  === 'phone' "}}
+							<div class="row-name">
+								<i class="fa fa-phone"></i> هاتف
+							</div>
+							<a href="tel:{{this.mp}}" target="_system">{{this.mp}}</a>
+						{{/js_compare}}
+
+						{{#js_compare "this.type  === 'whatsapp' "}}
+							<div class="row-name">
+								<i class="fa fa-mobile"></i> whatsapp
+							</div>
+							<a href="tel:{{this.mp}}" target="_system">{{this.mp}}</a>
+						{{/js_compare}}
+
+						{{#js_compare "this.type  === 'mobile' "}}
+							<div class="row-name">
+								<i class="fa fa-mobile"></i> جوال
+							</div>
+							<a href="tel:{{this.mp}}" target="_system">{{this.mp}}</a>
+						{{/js_compare}}
+
+						{{#js_compare "this.type  === 'fax' "}}
+							<div class="row-name">
+								<i class="fa fa-fax"></i> فاكس
+							</div>
+							{{this.mp}}
+						{{/js_compare}}
+
+						{{#js_compare "this.type  === 'p_b' "}}
+							<div class="row-name">
+								<i class="fa fa-inbox"></i> صندوق. بريد
+							</div>
+							{{this.mp}}
+						{{/js_compare}}
+
+						{{#js_compare "this.type  === 'address' "}}
+							<div class="row-name">
+								<i class="fa fa-map-marker"></i> عنوان
+							</div>
+							{{this.mp}}
+						{{/js_compare}}
+
+						<br>
+                    </blockquote>
+                </div>
+            </div>
+		{{/each}}
+		{{/if}}
+    </div>
+
+</script>
+
+<script type="text/template7" id="UserPanelTemplate">
+
+		{{#if this.results}}
+
+		{{#if results.mtgr_logo}}
+		<div class="user-banner">
+			<span class="ava-box">
+				
+				<a href="user.profile.html?user={{results.user_id}}">
+					<img src="{{settings.site_url}}/upload/thumbnail/{{results.mtgr_logo}}" >
+				</a>
+
+			</span>
+		</div>
+		{{/if}}
+
+		<div class="welcome-msg">
+			<h3>أهلاً بك يا: {{results.user_name}}</h3>
+			<h4>نتمنى لك يوماً جيداً</h4>
+		</div>
+
+		<div class="list-block mt-15">
+
+			<div class="list-group">
+				<ul>
+					{{#if results.activation}}
+					{{else}}
+						<li class="activation-link">
+							<a href="#" class="item-link close-panel item-content link open-popup" data-popup=".popup-activation">
+								<div class="item-media">
+									<i class="fa fa-check-circle"></i>
+								</div>
+								<div class="item-inner">
+									<div class="item-title"> تفعيل العضوية </div>
+								</div>
+							</a>
+						</li>
+					{{/if}}
+					<li>
+						<a href="edit.user.html" class="item-link close-panel item-content">
+							<div class="item-media">
+								<i class="fa fa-pencil "></i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title">تعديل بياناتى</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="#tab-city" class="tab-link item-link close-panel item-content">
+							<div class="item-media">
+								<i class="fa fa-map-marker"></i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title">تعديل مدينتى</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="ads.html?type=favorites" class="item-link close-panel item-content">
+							<div class="item-media">
+								<i class="fa fa-star"></i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title"> الإعلانات المفضلة </div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="add.ads.html" class="item-link close-panel item-content">
+							<div class="item-media">
+								<i class="fa fa-plus"></i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title"> إضافة أعلان جديد </div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="ads.html?my_ads=1" class="item-link close-panel item-content">
+							<div class="item-media">
+								<i class="fa fa-circle-o"></i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title"> إعلاناتى </div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="ads.html?type=timeline" class="item-link close-panel item-content">
+							<div class="item-media">
+								<i class="fa fa-flag"></i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title">  إعلانات الأعضاء المُتابعين  </div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="members_inbox.html" class="item-link close-panel item-content">
+							<div class="item-media">
+								<i class="fa fa-envelope"></i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title"> الرسائل الواردة </div>
+								<div class="item-after">
+                                    <span class="badge badge-primary bg-red messages-count">{{notices.num_msg}}</span>
+                                </div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="members_sent.html" class="item-link close-panel item-content">
+							<div class="item-media">
+								<i class="fa fa-envelope"></i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title">الرسائل الصادرة</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="commission.html" class="item-link close-panel item-content">
+							<div class="item-media">
+								<i class="flaticon-rate"></i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title">حساب العمولة</div>
+							</div>
+						</a>
+					</li>
+					<!--
+					<li>
+						<a href="#" class="item-link close-panel item-content link open-popup" data-popup=".popup-login">
+							<div class="item-media">
+								<i class="fa fa-sign-in"></i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title">دخول بعضوية أخرى</div>
+							</div>
+						</a>
+					</li>
+					-->
+					<li>
+                        <a class="item-link close-panel item-content" href="chats.html">
+                            <div class="item-media">
+                                <i class="fa fa-weixin"></i>
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-title">المحادثات</div>
+								<div class="item-after">
+                                    <span class="badge badge-primary bg-red chats-count">{{notices.chat_unread}}</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+					<li>
+						<a href="#" class="item-link close-panel item-content logout">
+							<div class="item-media">
+								<i class="fa fa-sign-out"></i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title"> تسجيل الخروج </div>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+
+		{{else}}
+
+		<div class="welcome-msg">
+			<h3>أهلاً بك </h3>
+			<h4>نتمنى لك يوماً جيداً</h4>
+		</div>
+
+		<div class="list-block mt-15">
+
+			<div class="list-group">
+					<ul>
+						<li>
+							<a href="#" class="item-link close-panel item-content link open-popup" data-popup=".popup-login">
+								<div class="item-media">
+									<i class="fa fa-sign-in"></i>
+								</div>
+								<div class="item-inner">
+									<div class="item-title">تسجيل الدخول</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#" id="login-user" class="item-link item-content link">
+								<div class="item-media">
+									<i class="fa fa-sign-in"></i>
+								</div>
+								<div class="item-inner">
+									<div class="item-title">الدخول من المواقع الاجتماعيه</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="new.user.html" class="item-link close-panel item-content link" >
+								<div class="item-media">
+									<i class="fa fa-male"></i>
+								</div>
+								<div class="item-inner">
+									<div class="item-title">تسجيل عضو جديد</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="re.password.html" class="item-link close-panel item-content link" >
+								<div class="item-media">
+									<i class="fa fa-key"></i>
+								</div>
+								<div class="item-inner">
+									<div class="item-title">نسيت كلمة المرور</div>
+								</div>
+							</a>
+						</li>
+					</ul>
+			</div>
+	<!--
+			<div class="list-group mt-20">
+				<nav>
+					<ul>
+						<li>
+							<a href="#" class="item-link item-primary close-panel item-content">
+								<div class="item-media">
+									<i class="fa fa-info-circle"></i>
+								</div>
+								<div class="item-inner">
+									<div class="item-title">About APP/Website</div>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+	-->
+		</div>
+		{{/if}}
+
+
+</script>
+<body>
+
+<div class="statusbar-overlay"></div>
+<div class="panel-overlay"></div>
+
+<!-- Left panel -->
+<!--
+<div class="panel panel-left panel-reveal">
+    <div class="line"></div>
+
+    <div class="logo-box">
+        <h2 id="site-logo"><img src=""  class="site-logo"></h2>
+    </div>
+
+    <div class="list-block mt-15">
+        <div class="list-group">
+            <nav>
+                <ul>
+                    <li class="divider">
+                        القائمة الرئيسية
+                    </li>
+
+                    <li class="home-link">
+                        <a href="index.html" class="item-link close-panel item-content">
+                            <div class="item-media">
+                                <i class="fa fa-th"></i>
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-title">الرئيسية</div>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="home-tab">
+                        <a href="#IndexTab3" class="tab-link  item-link close-panel item-content">
+                            <div class="item-media">
+                                <i class="fa fa-th"></i>
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-title">الرئيسية</div>
+                            </div>
+                        </a>
+                    </li>
+
+                </ul>
+                <ul class="categories-list"> </ul>
+                <ul class="pages-list"> </ul>
+
+                <ul>
+                    <li>
+                        <a href="contact.html" class="item-link close-panel item-content">
+                            <div class="item-media">
+                                <i class="fa fa-envelope-o"></i>
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-title">إتصل بنا</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+</div>
+-->
+<!-- Right panel -->
+<div class="panel panel-right panel-reveal">
+    <div class="line"></div>
+	<div class="User-Panel"></div>
+</div>
+
+<!-- Views -->
+<div class="views">
+    <div class="view view-main">
+
+		<div class="navbar">
+		  <div class="navbar-inner">
+                <div class="left">
+                    <a href="shops.html" class="link">
+                        <i class="fa fa-building-o"></i>
+                    </a>
+                </div>
+                <div class="center sliding site-name"></div>
+                <div class="right">
+					
+                    <a href="#" onclick="checkAdd()" class="link">
+                        <i class="fa fa-plus"></i>
+                    </a>
+					
+                </div>
+		  </div>
+		</div>
+
+        <div class="pages navbar-fixed toolbar-fixed">
+            <div data-page="index" class="page index-bg">
+                <div class="toolbar toolbar-bg">
+                    <div class="toolbar-inner">
+						<!--
+						<a href="contact.html" class="link">
+							<i class="flaticon-e-mail"></i>
+							<span>إتصل بنا</span>
+                        </a>
+						<a href="page_show.html?show=1" class="link">
+							<i class="flaticon-bulb"></i>
+							<span>من نحن</span>
+                        </a>
+						-->
+						<!--
+						<a href="banners.html" class="link">
+							<i class="fa fa-external-link-square"></i>
+							<span> بنرات  </span>
+						</a>
+						--->
+						<!--
+						<a class="link" href="chats.html">
+							<i class="fa fa-weixin"></i>
+							<span> المُحادثات </span>
+						</a>
+						-->
+						<!--
+						<a href="#" class="link">
+							<i class="fa fa-th"></i>
+							<span> الرئيسية  </span>
+						</a>
+						-->
+						<!--
+						<a href="shops.html" class="link">
+							<i class="fa fa-building-o"></i>
+							<span> المتاجر </span>
+						</a>
+						<a href="#tab1" class="tab-link  link ">
+						<i class="fa fa-ellipsis-v"></i>
+						<span> آخر الإعلانات </span>
+						</a>
+						<a href="#tab2" class="tab-link link">
+							<i class="fa fa-puzzle-piece"></i>
+							<span> الماركات </span>
+						</a>
+						-->
+						<a href="#more" class="tab-link link">
+							<i class="fa fa-user"></i>
+							<span> المزيد  </span>
+						</a>
+						<a href="#tab-msgs" class="tab-link link">
+							<i class="fa fa-envelope"></i>
+							<span> الرسائل  </span>
+						</a>
+						<a href="#tab-notification" class="tab-link link">
+							<i class="fa fa-bell icon "><span class="badge bg-red notification-count" style="display:none"></span></i>
+							<span> الإشعارات</span>
+						</a>
+						<a href="#tab-search" class="tab-link  close-panel link open-popup" data-popup=".popup-search">
+							<i class="flaticon-tool-1"></i>
+							<span>البحث</span>
+                        </a>
+						<!--
+						<a href="#tab-cat" class="tab-link link ">
+							<i class="fa fa-th"></i>
+							<span> الأقسام </span>
+						</a>
+						-->
+						<a href="#tab-home" class="tab-link link active">
+							<i class="fa fa-home"></i>
+							<span> الإعلانات </span>
+						</a>
+                    </div>
+                </div>
+                <div class="page-content infinite-scroll">
+					<!--
+					<div id="home">
+						<div id="app-status-div">
+							<ul id="app-status-ul">
+								<li>Cordova PushNotification Plugin Demo</li>
+							</ul>
+						</div>
+					</div>
+					<div id="videoArea"></div>
+					-->
+					<div class="tabs">
+						<!-- Tab 1  -->
+						<div id="tab-search" class="pull-to-refresh-content tab">
+							<nav class="dashboard-menu search-ads block-m-b">
+								<div class="list-block blog-box list-ads ">
+									<ul class="ads-block">
+										<div class="content-block">
+											<a href="#tab-search" class="button button-round button-fill close-panel open-popup" data-popup=".popup-search">
+											<i class="flaticon-tool-1"></i>
+											<span>اضغط هنا للبحث</span>
+											</a>
+										</div>
+									</ul>
+								</div>
+								<div class="infinite-scroll-preloader">
+								<div class="preloader"></div>
+								</div>
+							</nav>
+						</div>
+						<div id="tab-msgs" class="tab  ">
+
+							<div class="content-block">
+								<div class="buttons-row">
+								  <a href="#tab-inbox" class="tab-link active button">وارد</a>
+								  <a href="#tab-sent" class="tab-link button">صادر</a>
+								</div>
+							</div>
+							  <!-- Tabs, tabs wrapper -->
+							<div class="tabs">
+								<div id="tab-inbox" class="tab active">
+									<div class="block-m-b">
+										<nav class="inbox-list"><div class="text-center"><span class="preloader" style="width:42px; height:42px;margin:20px" ></span> </div> </nav>
+									</div>
+								</div>
+								<div id="tab-sent" class="tab">
+									<div class="block-m-b">
+										<nav class="sent-list"><div class="text-center"><span class="preloader" style="width:42px; height:42px;margin:20px" ></span> </div> </nav>
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<div id="tab-notification" class="tab  ">
+								<nav class="notifications-list"><div class="text-center"><span class="preloader" style="width:42px; height:42px;margin:20px" ></span> </div> </nav>
+						</div>
+						<div id="more" class="tab UserPanel ">
+							<div class="User-Panel block-m-b"></div>
+						</div>
+						<div id="tab-home" class="tab active">
+
+							<form class="index-form">
+								<div class="wrapper-block">
+									<div class="Sections-container " dir="rtl">
+										<div class="swiper-wrapper text-center">
+											<span class="preloader" style="    margin: 5px auto;    text-align: center;" ></span>
+										</div>
+									</div>
+								</div>
+								<div class="wrapper-block Sub-Sections">
+									<div class="Sub-Sections-container " dir="rtl">
+										<div class="swiper-wrapper text-center">
+											<span class="preloader" style="    margin: 5px auto;    text-align: center;" ></span>
+										</div>
+									</div>
+								</div>
+								<div class="wrapper-block">
+									<div class="tpes-container swiper-container-horizontal" dir="rtl">
+										<div class="swiper-wrapper text-center">
+										<div class="swiper-slide open-type  active" >الكل<input name="type" value="all" type="radio"></div>
+										<div class="swiper-slide open-type" >المصورة<input name="type" value="images" type="radio"></div>
+										<div class="swiper-slide open-type" >مدينتى<input name="type" value="city" type="radio"></div>
+										</div>
+									</div>
+								</div>
+							</form>
+							<!--
+							<div class="wrapper-block city-btn">
+							<a href="#tab-city" class="tab-link button button-round button-fill ">
+								<i class="fa fa-map-marker"></i>
+								<span>تعديل مدينتى</span>
+							</a>
+							</div>
+							-->
+							<div class="">
+								<nav class="dashboard-menu index-ads block-m-b">
+									<div class="list-block blog-box list-ads ">
+										<ul class="ads-block pull-to-refresh-content "></ul>
+									</div>
+									<div class="infinite-scroll-preloader">
+									<div class="preloader"></div>
+									</div>
+								</nav>
+							</div>
+						</div>
+						<div id="tab-cat" class="tab ">
+							<nav class="dashboard-menu categories-menu"></nav>
+						</div>
+						<div id="tab-city" class="tab ">
+								<div class="content-block">
+								<form action="" method="POST" id="home-form" class="AdForm home-form">
+								<div class="list-block ">
+									<ul>
+										<li>
+											<div class="item-content">
+												<div class="item-media"><i class="fa fa-flag"></i></div>
+												<div class="item-inner">
+													<div class="item-title label">الدولة</div>
+													<div class="item-input">
+														<select name="country" class="country"></select>
+													</div>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="item-content">
+												<div class="item-media"><i class="fa fa-map-marker"></i></div>
+												<div class="item-inner">
+													<div class="item-title label">مدينتى</div>
+													<div class="item-input">
+														<select name="city" class="area"></select>
+													</div>
+												</div>
+											</div>
+										</li>
+
+										<li class="align-top">
+											<div class="item-content">
+												<input type="submit" value="تغيير المدينة" class="button button-big ad-form-submit button-secondary button-primary" name="submit">
+											</div>
+										</li>
+									</ul>
+								</div>
+								</form>
+								</div>
+						</div>
+					</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="popup popup-search">
+    <div class="content-block  mt-50">
+        <a href="#" class="close-popup">
+            <i class="fa fa-close"></i>
+        </a>
+
+				<form action="" method="GET" id="SearchAds" class="AdForm">
+					<div class="content-block-title"> الإعلان </div>
+					<div class="list-block">
+						<ul>
+							<li>
+								<div class="item-content">
+									<div class="item-media"><span class="icon-profile"></span></div>
+									<div class="item-inner">
+										<div class="item-title label">إسم الإعلان</div>
+										<div class="item-input">
+											<input type="text" name="title" placeholder="">
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="item-content">
+									<div class="item-media"><i class="fa fa-toggle-on"></i></div>
+									<div class="item-inner">
+										<div class="item-title label"> الخدمة  </div>
+										<div class="item-input">
+											<select name="service" class="service"></select>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+
+					<div class="content-block-title">تصنيف الإعلان </div>
+					<div class="list-block">
+						<ul>
+							<li>
+								<div class="item-content">
+									<div class="item-media"><i class="fa fa-chevron-left"></i></div>
+									<div class="item-inner">
+										<div class="item-title label">القسم</div>
+										<div class="item-input">
+											<select name="cat" class="cat"></select>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="brand_item">
+								<div class="item-content">
+									<div class="item-media"><i class="fa fa-angle-double-left"></i></div>
+									<div class="item-inner">
+										<div class="item-title label">التصنيف</div>
+										<div class="item-input">
+											<select name="brand" class="brand"></select>
+										</div>
+									</div>
+								</div>
+							</li>
+							<!--
+							<li class="typ_item">
+								<div class="item-content">
+									<div class="item-media"><i class="fa fa-angle-left"></i></div>
+									<div class="item-inner">
+										<div class="item-title label">النوع</div>
+										<div class="item-input">
+											<select name="typ" class="typ"></select>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="model_item">
+								<div class="item-content">
+									<div class="item-media"><i class="fa fa-caret-left"></i></div>
+									<div class="item-inner">
+										<div class="item-title label">الموديل</div>
+										<div class="item-input">
+											<select name="model" class="model"></select>
+										</div>
+									</div>
+								</div>
+							</li>
+							--->
+						</ul>
+					</div>
+					<div class="content-block-title">المكان</div>
+					<div class="list-block">
+						<ul>
+							<li>
+								<div class="item-content">
+									<div class="item-media"><i class="fa fa-flag"></i></div>
+									<div class="item-inner">
+										<div class="item-title label">الدولة</div>
+										<div class="item-input">
+											<select name="country" class="country"></select>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="item-content">
+									<div class="item-media"><i class="fa fa-map-marker"></i></div>
+									<div class="item-inner">
+										<div class="item-title label">المنطقة</div>
+										<div class="item-input">
+											<select name="area" class="area"></select>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="list-block">
+						<ul>
+							<li class="align-top">
+
+								<input type="hidden" value="1" name="search">
+								<input type="submit" value="بحث" class="button button-big ad-form-submit button-secondary button-primary" name="search">
+							</li>
+						</ul>
+					</div>
+                </form>
+        <!-- <a href="#" class="more-info">I don't have a APP account.</a> -->
+    </div>
+</div>
+
+<div class="popup popup-sendmsg">
+	<div class="content-block">
+		<a href="#" class="close-popup">
+			<i class="fa fa-close"></i>
+		</a>
+		<div class="text-center mt-70">
+			<h2>إرسال رسالة جديد</h2>
+			<!--  <h3>تسجيل دخول الأعضاء</h3> -->
+		</div>
+		<div class="forms mt-50">
+			<form method="post" class="js-msg" novalidate>
+
+				<div class="form-row">
+					<div class="input-text">
+						<input type="hidden" id="popup-sendmsg" >
+						<input type="text" name="title" placeholder="عنوان الرسالة " required>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="input-text">
+						<textarea  name="msg" placeholder="الرسالة" required></textarea>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="input-submit">
+						<a href="#" class="button button-big js-msg-submit button-secondary button-primary">إرسال</a>
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<!-- <a href="#" class="more-info">I don't have a APP account.</a> -->
+	</div>
+</div>
+
+
+
+<div class="popup popup-activation">
+    <div class="content-block">
+        <a href="#" class="close-popup">
+            <i class="fa fa-close"></i>
+        </a>
+
+        <div class="text-center mt-70">
+            <h2>أهلاً بك !</h2>
+
+            <h3>حتى تتمتع بصلاحيات إضافية ومميزات أكثر إبداء الآن بتفعيل عضويتك</h3>
+        </div>
+
+        <div class="forms mt-50">
+
+            <div class="login-view-box">
+
+                <div class="list login-form-box">
+					<form method="post"
+						  class="js-active"
+						  novalidate="novalidate">
+                        <label class="item item-input">
+                            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								  viewBox="0 0 516.375 516.375" width="20" height="20"  style="enable-background:new 0 0 516.375 516.375;"
+								 xml:space="preserve">
+							<g>
+								<path d="M353.812,0C263.925,0,191.25,72.675,191.25,162.562c0,19.125,3.825,38.25,9.562,57.375L0,420.75v95.625h95.625V459H153
+									v-57.375h57.375l86.062-86.062c17.213,5.737,36.338,9.562,57.375,9.562c89.888,0,162.562-72.675,162.562-162.562S443.7,0,353.812,0
+									z M401.625,172.125c-32.513,0-57.375-24.862-57.375-57.375s24.862-57.375,57.375-57.375S459,82.237,459,114.75
+									S434.138,172.125,401.625,172.125z"/>
+							</g>
+							</svg>
+                            <input type="text" name="code" placeholder="كود التفعيل" class="but-code"/>
+                        </label>
+                        <button type="submit"
+                                class="button button-block button-positive js-active-submit"
+                                id="login-button">
+                            <i class="icon ion-loading-c" ng-show="loading"></i>
+                            <span ng-hide="loading">تفعيل </span>
+                        </button>
+                    </form>
+					<a href="#" class="re-send">إرسال كود التفعيل مرة أخرى</a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- <a href="#" class="more-info">I don't have a APP account.</a> -->
+    </div>
+</div>
+
+<div class="popup popup-splash welcom-container">
+    <div class="content-block"> 
+		<div class="logo">
+			<img src="" class="site-logo"/>
+		</div>
+		<div class="ckeditor-code ">
+		<div class="text-center">
+			<h3><b> إقراء إتفاقية الموقع </b></h3>
+		</div>
+		
+		<div class="commission">
+
+		</div>
+		</div>
+		
+		<a href="#" class=" close-popup more-info">
+			<div class="list-block">
+					<input name="submit" class="button active" value="قرأت الشروط وموافق على كل ما سبق" type="submit">
+			</div>
+		 </a> 
+    </div>
+</div>
+
+
+<div class="popup popup-login">
+    <div class="content-block">
+        <a href="#" class="close-popup">
+            <i class="fa fa-close"></i>
+        </a>
+
+        <div class="text-center mt-70">
+            <h2>أهلاً بك !</h2>
+
+            <h3>تسجيل دخول الأعضاء</h3>
+        </div>
+
+        <div class="forms mt-50">
+            <form method="post"
+                  class="js-validate"
+                  novalidate="novalidate">
+
+                <div class="form-row">
+                    <div class="input-text">
+                        <input type="text" name="user_mail" placeholder="رقم جوالك أو إسم المستخدم" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="input-text">
+                        <input type="password" name="user_password" placeholder="كلمة المرور" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="input-submit">
+                        <a href="#" class="button button-big js-form-submit button-secondary button-primary">دخول</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- <a href="#" class="more-info">I don't have a APP account.</a> -->
+    </div>
+</div>
+
+
+<!-- Picker -->
+<div class="picker-modal picker-social">
+    <div class="toolbar">
+        <div class="toolbar-inner">
+            <div class="left"></div>
+            <div class="right"><a href="#" class="close-picker">تم</a></div>
+        </div>
+    </div>
+    <div class="picker-modal-inner">
+        <div class="content-block mt-15 mb-10">
+            <h3>مشاركة الإعلان</h3>
+
+            <div class="social-buttons">
+                <a href="#"><i class="fa fa-twitter-square"></i></a>
+                <a href="#"><i class="fa fa-facebook-square"></i></a>
+                <a href="#"><i class="fa fa-pinterest-square"></i></a>
+                <a href="#"><i class="fa fa-linkedin-square"></i></a>
+                <a href="#"><i class="fa fa-google-plus-square"></i></a>
+                <a href="#"><i class="fa fa-flickr"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+<script type="text/javascript" src="bower_components/framework7/dist/js/framework7.min.js"></script>
+<script type="text/javascript" src="bower_components/swipebox/src/js/jquery.swipebox.min.js"></script>
+<script type="text/javascript" src="bower_components/jquery-validation/dist/jquery.validate.min.js"></script>
+<script type="text/javascript" src="assets/js/comments.app.js"></script>
+<script type="text/javascript" src="assets/js/ads.form.app.js"></script>
+<script type="text/javascript" src="assets/js/ads.index.app.js"></script>
+<script type="text/javascript" src="assets/js/user.form.app.js"></script>
+<script type="text/javascript" src="assets/js/contact.form.app.js"></script>
+<script type="text/javascript" src="assets/js/ads.app.js"></script>
+<script type="text/javascript" src="assets/js/user.mail.app.js"></script>
+<script type="text/javascript" src="assets/js/user.app.js"></script>
+<script type="text/javascript" src="assets/js/app.js"></script>
+<script type="text/javascript" src="assets/js/Notification-app.js"></script>
+<script type="text/javascript" src="assets/js/notification.app.js"></script>
+<script type="text/javascript" src="assets/js/chat.js"></script>
+</body>
+</html>

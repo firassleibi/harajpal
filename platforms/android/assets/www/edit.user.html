@@ -1,0 +1,141 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="left">
+			<a href="index.html" class="link icon-only">
+				<i class="fa fa-home"></i>
+			</a>
+        </div>
+        <div class="center sliding">تعديل بياناتى</div>
+        <div class="right">
+            <a href="#" class="link icon-only back-btn">
+                <i class="fa fa-chevron-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="view another-view">
+    <!-- Pages -->
+    <div class="pages">
+        <div class="page no-toolbar" data-page="edit_user">
+            <div class="page-content">
+				<form action="" method="POST" id="EditUser" class="AdForm">
+					<div class="content-block-title">بيانات الحساب  </div>
+					<div class="list-block">
+						<ul>
+							<li>
+								<div class="item-content">
+									<div class="item-media"><i class="fa fa-user fa-fw"></i></div>
+									<div class="item-inner">
+										<div class="item-title label">اسم المستخدم </div>
+										<div class="item-input">
+											<input type="text" name="user_name" placeholder="">
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="item-content">
+									<div class="item-media"><i class="fa fa-flag"></i></div>
+									<div class="item-inner">
+										<div class="item-title label">الدولة</div>
+										<div class="item-input">
+											<select name="user_country" class="country"></select>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="item-content">
+									<div class="item-media"><i class="fa fa-flag"></i></div>
+									<div class="item-inner">
+										<div class="item-title label">المنطقة</div>
+										<div class="item-input">
+											<input type="text" name="in_cont" placeholder="">
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div> 
+					<div class="content-block-title"> بيانات الدخول </div>
+					<div class="list-block">
+						<ul>
+							<li>
+								<div class="item-content">
+									<div class="item-media"><i class="fa fa-envelope-o fa-fw"></i></div>
+									<div class="item-inner">
+										<div class="item-title label">الإيميل</div>
+										<div class="item-input">
+											<input type="email" name="user_mail" placeholder="">
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="item-content">
+									<div class="item-media"><i class="fa fa-mobile"></i></div>
+									<div class="item-inner">
+										<div class="item-title label"> الهاتف الجوال </div>
+										<div class="item-input">
+											<input type="text" name="mobile" placeholder="بدون كود الدولة">
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="item-content">
+									<div class="item-media"><i class="fa fa-key fa-fw"></i></div>
+									<div class="item-inner">
+										<div class="item-title label"> تعديل كلمة المرور </div>
+										<div class="item-input">
+											<select name="edit_pass">
+												<option value="0"> لا </option>
+												<option value="1"> نعم </option>
+											</select>
+										</div>
+									</div>
+								</div>
+							</li>
+							
+							<li class="wr-pass">
+								<div class="item-content">
+									<div class="item-media"><i class="fa fa-key fa-fw"></i></div>
+									<div class="item-inner">
+										<div class="item-title label"> كلمة المرور  </div>
+										<div class="item-input">
+											<input type="password" name="user_password" placeholder="">
+										</div>
+									</div>
+								</div>
+							</li>
+							
+							<li class="wr-pass">
+								<div class="item-content">
+									<div class="item-media"><i class="fa fa-key fa-fw"></i></div>
+									<div class="item-inner">
+										<div class="item-title label">إعادة كلمة المرور</div>
+										<div class="item-input">
+											<input type="password" name="repass" placeholder="">
+										</div>
+									</div>
+								</div>
+							</li> 
+						</ul>
+					</div>
+
+					<div class="list-block">
+						<ul>
+							<li class="align-top">
+								<div class="item-content">
+									<input type="submit" value="تعديل البيانات" class="button button-big ad-form-submit button-secondary button-primary" name="submit">
+								</div>
+							</li>
+						</ul>
+					</div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

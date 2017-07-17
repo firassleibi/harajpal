@@ -1,0 +1,1154 @@
+
+@font-face {
+    font-family: "JF Flat Regular";
+    font-style: normal;
+    font-weight: normal;
+    src: url("fonts/JF-Flat-regular.eot?#iefix") format("embedded-opentype"), url("fonts/JF-Flat-regular.svg#JF Flat Regular") format("svg"), url("fonts/JF-Flat-regular.woff") format("woff"), url("fonts/JF-Flat-regular.ttf") format("truetype");
+}
+.clear {
+    clear: both;
+}
+ul.ads-block {
+}
+ul.ads-block::before {
+    background-color: transparent;
+}
+ul.ads-block li {
+}
+ul.ads-block li .text {
+    direction: rtl;
+    text-align: right;
+}
+ul.ads-block li .text small span {
+    display: block;
+    float: right;
+    font-size: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 50%;
+}
+ul.ads-block li .text small span i {
+    float: right;
+    font-size: 12px;
+    margin-left: 2px;
+    margin-top: 2px;
+    text-align: center;
+    width: 14px;
+}
+ul.ads-block li .title {
+    font: bold 14px arial;
+}
+ul.ads-block li .date {
+    color: #999;
+    display: block;
+    font-size: 10px;
+    height: 23px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+ul.ads-block li .date i{
+    float: right;
+    font-size: 12px;
+    margin-left: 2px;
+    margin-top: 2px;
+    text-align: center;
+    width: 14px;
+}
+.blog-box li .blog-list .text small {
+    display: block;
+    margin: 6px 0;
+    overflow: hidden;
+}
+.blog-box li .blog-list .text p {
+    color: #777;
+    display: none;
+    font-size: 11px;
+    margin-bottom: 5px;
+    margin-top: 9px;
+}
+ul.ads-block li .image {
+    background: rgba(0, 0, 0, 0) url("../img/no-image.png") no-repeat scroll center center / auto 100%;
+    display: inline-block;
+    float: left;
+    height: 82px;
+    margin-right: 16px;
+    padding: 0 4px;
+    width: 120px;
+}
+ul.ads-block li .text {
+    margin-left: 124px;
+}
+.ads-content {
+}
+.ads-content .content-ad {
+    direction: rtl;
+    text-align: right;
+}
+.content-ad .gallery-list {
+    margin-bottom: 10px !important;
+    overflow: hidden;
+}
+.ads-content .content-ad h1 {
+    display: block;
+    font: bold 14px "JF Flat Regular";
+    margin: 9px 0 !important;
+    padding: 0 6px;
+    text-align: center;
+}
+.ads-content .content-ad .row {
+    border-bottom: 1px solid #eee;
+    border-top: 1px solid #eee;
+    margin: 6px 0;
+    padding: 7px 8px;
+}
+.ads-content .content-ad .row > div {
+    display: block;
+    font: 12px "JF Flat Regular";
+    margin-bottom: 2px;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.ads-content .content-ad .row > div > i {
+    font-size: 14px;
+    margin-left: 7px;
+    text-align: center;
+    width: 14px;
+}
+.ckeditor-code {
+    background: #fff none repeat scroll 0 0;
+    color: #000;
+    direction: rtl;
+    font: 14px "JF Flat Regular";
+    padding: 10px 15px;
+    text-align: justify;
+    word-wrap: break-word;
+}
+.ads-content .content-block-inner {
+    margin-bottom: 10px;
+}
+.ckeditor-code img {
+    display: block;
+    margin: 0 auto;
+    max-width: 98%;
+}
+.ckeditor-code iframe {
+    border: 1px solid #cccccc;
+    border-radius: 7px;
+    display: block;
+    margin: 0 auto;
+    max-width: 98%;
+    padding: 1px;
+}
+.ckeditor-code ul {
+    padding: 0 40px;
+}
+.ckeditor-code ul li {
+    list-style: outside none decimal;
+    margin-bottom: 4px;
+    margin-right: 10px;
+    margin-top: 4px;
+}
+.ckeditor-code ol {
+    padding: 0 40px 0 20px;
+}
+.ckeditor-code ol li {
+    list-style: outside none -moz-arabic-indic;
+    margin-bottom: 4px;
+    margin-right: -9px;
+    margin-top: 4px;
+}
+.ckeditor-code blockquote {
+    border-color: #cccccc;
+    border-style: solid;
+    border-width: 0 5px 0 0;
+    font-family: Georgia,Times,"Times New Roman",serif;
+    font-style: italic;
+    padding: 2px 20px 2px 8px;
+}
+.ckeditor-code table {
+    border: 2px ridge #cccccc;
+    margin: 10px 0;
+    width: 100%;
+}
+.ckeditor-code table tbody {
+    width: 100%;
+}
+.ckeditor-code table tr {
+    width: 100%;
+}
+.ckeditor-code table tr td {
+    border: 2px ridge #cccccc;
+}
+.categories-menu {
+    direction: rtl;
+}
+.categories-menu .item {
+    margin-bottom: 23px;
+}
+.categories-menu .item img {
+}
+.categories-menu .item .menu-link > span:last-child {
+    bottom: 10px;
+    display: block;
+    font: bold 10px/17px "JF Flat Regular";
+    margin: 0;
+    max-width: 100%;
+    overflow: hidden;
+    padding: 0;
+    text-overflow: ellipsis;
+}
+#site-logo {
+    padding: 0 13px;
+}
+#site-logo img {
+    display: block;
+    margin: 0 auto;
+    max-height: 22px;
+    max-width: 100%;
+}
+.navbar .center {
+    font: bold 12px "JF Flat Regular";
+}
+.panel .list-block .list-group ul li {
+    font: bold 12px "JF Flat Regular";
+}
+.tabs-animated-wrap {
+    height: auto;
+}
+.tabs-animated-wrap > .tabs {
+    height: auto;
+}
+.contact_us-list {
+    direction: rtl;
+}
+.contact_us-list > div {
+}
+.contact_us-list > div blockquote {
+    border-left: medium none;
+    border-right: 5px solid #fff;
+    color: #fff;
+    padding: 0 20px 0 0;
+}
+.contact_us-list > div blockquote i {
+    color: #fff;
+    font-size: 14px;
+    margin-right: 2px;
+    text-align: center;
+    width: 14px;
+}
+.contact_us-list > div blockquote .row-name {
+    font: bold 12px "JF Flat Regular";
+}
+.contact_us-list > div blockquote a {
+    color: #fff;
+}
+.add-page{
+	    background: #fff none repeat scroll 0 0;
+}
+.AdForm {
+    direction: rtl;
+}
+.AdForm li {
+    background-color: #fff;
+    border: 1px solid #d0d0d0;
+    margin: 3px 6px;
+}
+.AdForm .list-block .item-inner {
+    padding-bottom: 0;
+    padding-top: 0;
+}
+.AdForm .list-block .item-media {
+    padding-bottom: 0;
+    padding-top: 0;
+}
+.AdForm .list-block .item-inner::after {
+    background-color: transparent;
+}
+.AdForm .item-title.label {
+    font: bold 12px "JF Flat Regular";
+}
+.AdForm .item-title.label + .item-input {
+}
+.AdForm .item-content {
+    padding-left: 5px;
+    padding-right: 7px;
+}
+.AdForm .ad-form-submit {
+    font: bold 12px "JF Flat Regular";
+    margin: 12px 0;
+}
+.content-block-title {
+    font: bold 12px "JF Flat Regular";
+}
+.close-popup .fa-close {
+    font-size: 20px;
+}
+.user-card {
+    margin: 15px 12px;
+}
+.user-card .list-block .item-content {
+    padding-left: 0;
+    padding-right: 15px;
+}
+.user-card .list-block .item-content .item-media i {
+    background-color: #4382fa;
+    border-radius: 4px;
+    color: #fff;
+    height: 29px;
+    line-height: 29px;
+    text-align: center;
+    width: 29px;
+}
+.user-card .list-block .item-media + .item-inner {
+    background: transparent none repeat scroll 0 0;
+    margin-left: 0;
+    margin-right: 15px;
+    padding-right: 0;
+    text-align: left;
+}
+.user-card .list-block .item-media + .item-inner i {
+    color: #c7c7cc;
+    float: right;
+    line-height: 23px;
+    margin-left: 5px;
+}
+
+.list-block .item-media + .item-inner {
+    margin-left: 0;
+}
+.list-block .item-title.label + .item-input {
+    margin-left: 0;
+}
+.Favorit {
+    color: #f4b525;
+    font-size: 130%;
+}
+.Favorit a {
+    color: #f4b525;
+}
+.Favorit img {
+    width: 30px;
+}
+.btn-like, .btn-dislike {
+    color: #fff;
+    cursor: pointer;
+    display: table;
+    font: bold 11px/37px "Droid Arabic Kufi";
+    margin: 0 auto 10px;
+    overflow: hidden;
+    position: relative;
+    width: 158px;
+}
+.btn-like i, .btn-dislike i {
+    float: right;
+    font-size: 23px;
+    height: 39px;
+    line-height: 39px;
+    margin-left: 6px;
+    text-align: center;
+    width: 45px;
+}
+.btn-like span, .btn-dislike span {
+    direction: ltr;
+    display: -moz-box;
+    float: left;
+    font-family: Georgia;
+    font-size: 14px;
+    font-weight: normal;
+    height: 39px;
+    margin-right: 10px;
+    padding: 0 11px 0 5px;
+    position: relative;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 26px;
+}
+.btn-like em, .btn-dislike em {
+    border-radius: 50%;
+    display: block;
+    height: 22px;
+    left: 32px;
+    position: absolute;
+    top: 9px;
+    width: 17px;
+}
+.btn-like .loading-number, .btn-dislike .loading-number {
+    background-color: #f9edbe;
+    background-image: url("../design/loading.gif");
+    background-position: center center;
+    background-repeat: no-repeat;
+    font-size: 0;
+}
+.btn-like {
+    background-color: #1dcb66;
+}
+.btn-like i {
+    background-color: #17b258;
+}
+.btn-like span {
+    background-color: #17b258;
+}
+.btn-like em {
+    background-color: #17b258;
+}
+.btn-dislike {
+    background-color: #adadad;
+}
+.btn-dislike i {
+    background-color: #717171;
+}
+.btn-dislike span {
+    background-color: #717171;
+}
+.btn-dislike em {
+    background-color: #717171;
+}
+.picker-modal {
+    direction: rtl;
+    height: auto;
+}
+.picker-modal h3 {
+}
+.picker-modal .close-picker {
+}
+.comments-box {
+    margin-bottom: 61px;
+}
+.comments-box ul::before {
+    background-color: transparent;
+}
+.comments-box li::after {
+    background-color: transparent;
+}
+.comments-box li.swipeout {
+    border: 1px solid #c8c8c8;
+    margin: 4px 13px;
+}
+.comments-box .item-content {
+    direction: rtl;
+    padding-left: 0;
+    padding-right: 15px;
+    text-align: right;
+}
+.comments-box .item-content .comments-list {
+    padding-left: 15px;
+    padding-right: 0;
+}
+.comments-box .item-content .comments-list .image {
+    display: inline-block;
+    float: right;
+    font: 12px/32px "Droid Arabic Naskh",Arial,Helvetica,sans-serif;
+    width: 77px;
+}
+.comments-box .item-content .comments-list .text {
+    float: none;
+    margin-right: 78px;
+    width: auto;
+}
+.comments-box .item-content .comments-list .text .info {
+}
+.comments-box .item-content .comments-list .text .info .nick {
+}
+.comments-box .item-content .comments-list .text .info .nick a {
+    color: #535353;
+    font: bold 12px "JF Flat Regular";
+    margin-right: 9px;
+}
+.comments-box .item-content .comments-list .text .info .data {
+    color: #cdcdcd;
+    float: left;
+    padding-top: 3px;
+}
+.comments-box .item-content .comments-list .text .info .data img {
+    float: right;
+    margin-left: 4px;
+    margin-top: -2px;
+    width: 16px;
+}
+.list-report {
+    padding: 5px 9px;
+}
+.list-report li {
+    direction: rtl;
+    font: 15px/28px "JF Flat Regular";
+    padding: 3px 4px;
+    text-align: right;
+}
+.welcome-msg h3 {
+    direction: rtl;
+    font: bold 12px/25px "JF Flat Regular";
+    margin-bottom: 9px;
+}
+.welcome-msg h3 b {
+    color: #ffed53;
+}
+.user-profile .banner {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url("../img/cover.jpg");
+    background-origin: padding-box;
+    background-position: 0 0;
+    height: auto;
+    margin-top: 0;
+    padding-bottom: 17px;
+}
+.user-profile .banner .ava-box {
+    padding-top: 43px;
+}
+.user-profile .banner small {
+    background: rgba(0, 0, 0, 0.2) none repeat scroll 0 0;
+    font: bold 12px "JF Flat Regular";
+    padding: 7px 0;
+    text-shadow: 0 0 1px #000;
+}
+#user-contact {
+}
+#user-contact header , #user-contact .card-header {
+    direction: rtl;
+    font: bold 12px "JF Flat Regular";
+    height: auto;
+    padding: 5px 7px;
+    text-align: right;
+}
+#user-contact .item-content {
+    direction: rtl;
+}
+#user-contact .item-content .item-media {
+    padding: 0 5px;
+	width: 39px;
+}
+#user-contact .item-content .item-media i {
+    background-color: #4382fa;
+    border-radius: 4px;
+    color: #fff;
+    height: 29px;
+    line-height: 29px;
+    text-align: center;
+    width: 29px;
+}
+#user-contact .item-content .item-inner {
+    background-color: #f5f4f4;
+    margin: 0 15px 0 0;
+    padding: 10px 15px;
+}
+#user-contact .item-content .item-inner .item-title-row {
+    background: transparent none repeat scroll 0 0;
+    float: right;
+    font: bold 11px "JF Flat Regular";
+    padding: 0;
+    width: 89px;
+}
+#user-contact .item-content .item-inner .date {
+    direction: ltr;
+    float: right;
+    font: 12px/18px tahoma;
+    text-align: left;
+}
+#user-contact .item-content:last-child .item-inner::after {
+    background: transparent none repeat scroll 0 0;
+}
+#user-ads {
+}
+#user-ads header {
+    direction: rtl;
+    font: bold 12px "JF Flat Regular";
+    padding: 5px 2px;
+    text-align: right;
+}
+#user-ads .media-list {
+}
+#user-ads .media-list .item-inner {
+    direction: rtl;
+    margin-left: 0;
+    margin-right: 15px;
+}
+#user-ads .media-list .item-media {
+}
+#user-ads .media-list .item-media img {
+    margin-left: 0;
+    margin-right: 15px;
+}
+#user-ads .media-list .name {
+    color: #2980b9;
+    font: bold 12px "JF Flat Regular";
+}
+#user-ads .media-list .text {
+    font-size: 14px;
+}
+#user-ads .media-list small {
+    color: #999;
+    display: block;
+    font-size: 11px;
+    margin: 6px 0;
+}
+#user-ads .media-list small span {
+    display: inline-block;
+    margin-left: 7px;
+}
+#user-ads .media-list small span i {
+    font-size: 12px;
+    margin-left: 0;
+    text-align: center;
+    width: 14px;
+}
+.button-follow {
+    margin: 12px 11px 0;
+}
+.button-go-mrgr {
+    margin: 12px auto 0;
+}
+#msgs .item-inner {
+    direction: rtl;
+    padding: 10px 13px;
+}
+#msgs .item-inner .item-title-row {
+    background: transparent none repeat scroll 0 0;
+    font: bold 12px "JF Flat Regular";
+    margin-bottom: 4px;
+    padding: 0;
+}
+#msgs .item-inner .item-title-row i {
+    color: #c7c7cc;
+    margin: 4px 0;
+}
+#msgs .item-inner .date {
+    font-size: 11px;
+}
+#msgs .item-inner.reading {
+    background-color: #f5f5f5;
+}
+.page-content .page-meta {
+    color: #999;
+    display: block;
+    margin: 6px 0;
+    padding: 0 4px;
+}
+.page-content .page-meta i {
+    font-size: 12px;
+    margin-left: 0;
+    text-align: center;
+    width: 14px;
+}
+.popup-sendmsg {
+    direction: rtl;
+}
+.popup-sendmsg h2 {
+    font-family: "JF Flat Regular";
+}
+.popup-login {
+    direction: rtl;
+}
+.popup-login h2 {
+    font-family: "JF Flat Regular";
+}
+#btn {
+}
+#files {
+    margin: 6px 0;
+}
+#files .item-content {
+    margin-bottom: 5px;
+    padding: 0;
+}
+#files .item-content .item-inner::after {
+    background-color: #fff;
+}
+#files .item-content .item-inner {
+    padding: 0;
+    width: 50%;
+}
+#files .item-content .item-media img {
+    display: block;
+    max-width: 100%;
+}
+#files .item-content .item-media {
+    padding: 0;
+    width: 50%;
+}
+.panel {
+    background-color: #1e1c1d;
+}
+.panel .list-block .list-group {
+}
+.panel .list-block .list-group ul {
+}
+.panel .list-block .list-group ul > li {
+    direction: rtl;
+}
+.panel .list-block .list-group ul > li::after {
+    background-color: #1e1c1d;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+.panel .list-block .list-group ul::before {
+    background-color: transparent;
+}
+.panel .list-block .list-group ul > li > a {
+    padding-left: 0;
+    padding-right: 15px;
+}
+.panel .list-block .list-group ul > li > a .item-media {
+}
+.panel .list-block .list-group ul > li > a .item-inner {
+    margin-left: 0;
+    margin-right: 15px;
+    padding-left: 35px;
+    padding-right: 0;
+}
+.panel .list-block .list-group ul li.divider {
+    text-align: right;
+}
+.panel .list-block .list-group ul li .item-inner .badge {
+    left: 35px;
+    right: auto;
+}
+ul.ads-block li .image img {
+    display: block;
+    height: 82px;
+    margin: 0 auto;
+}
+.list-block ul::after {
+    background-color: transparent;
+}
+.infinite-scroll-preloader {
+    background-color: #fff;
+    padding: 13px 0;
+}
+.infinite-scroll-preloader .preloader {
+    display: table;
+    margin: 0 auto;
+}
+.list-ads {
+    margin: 0 !important;
+}
+.menu-list .item-title {
+    color: #fff;
+    text-align: right;
+    white-space: pre-line;
+    width: 100%;
+}
+.menu-list .item-media i {
+    color: #fff;
+    font-size: 16px;
+}
+.list-banners {
+}
+.list-banners .banner-row {
+    border-bottom: 1px dotted #ccc;
+    font: bold 12px "JF Flat Regular";
+    padding: 10px 7px;
+    text-align: center;
+}
+.list-banners .banner-row img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+.toolbar.toolbar-bg {
+    background: rgba(4, 115, 192, 0.5) none repeat scroll 0 0;
+}
+.login-view-box .item-input svg path {
+    fill: #b2c751;
+}
+.login-view-box .item-input input {
+    color: #b2c751;
+}
+.login-view-box .item-input {
+    border-color: #ccc;
+}
+.re-send {
+    color: #b2c751;
+}
+.re-send {
+    display: table;
+    font: 16px/35px "JF Flat Regular";
+    height: auto;
+    margin: 14px auto;
+}
+.transfer_data {
+    list-style: outside none none;
+    margin: 0;
+    padding: 6px 0;
+	margin-bottom: 69px;
+}
+.transfer_data li {
+	background-color: #fff;
+    border-color: #ebebeb #ebebeb #c7c7c7;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+    color: #000000;
+    margin: 5px 6px 3px;
+    padding: 12px 5px;
+    text-align: center;
+}
+.transfer_data li .name {
+    color: #07558c;
+    font: bold 11px/17px "JF Flat Regular";
+    padding: 8px 0;
+}
+.transfer_data li .a_img {
+    max-width: 100%;
+}
+.transfer_data li .det {
+    font: bold 11px/17px "JF Flat Regular";
+} 
+.site-commission {
+}
+.AdForm {
+}
+.AdForm .list-block ul {
+    background-color: #efefef;
+    border: 1px solid #d6d6d6;
+    border-radius: 6px;
+    margin: 0 10px;
+    padding: 5px;
+}
+.AdForm .list-block ul::before {
+    background: transparent none repeat scroll 0 0;
+}
+.AdForm li select, .AdForm li input {
+}
+.user-banner {
+}
+.list-block select {
+    background: rgba(0, 0, 0, 0) url("../img/icon-16.png") no-repeat scroll 5px center / 15px auto;
+}
+.more-info.close-popup {
+    left: auto;
+    position: relative;
+    right: auto;
+    top: auto;
+    width: 100%;
+}
+
+.toolbar a.link i {
+	    display: inline;
+}
+.toolbar a.link > span {
+    display: block;
+    font: bold 11px/17px "JF Flat Regular";
+    margin: 0 !important;
+    text-align: center;
+    width: 100%;
+}
+
+
+.notifications .item-content{
+	    direction: rtl;
+}
+.list-block li.media-item .item-title, .list-block.media-list .item-title{
+    font: bold 11px "JF Flat Regular";
+	text-align: right;
+}
+.notifications .item-text{
+    font:  11px "JF Flat Regular";
+    text-align: right;
+}
+.notifications li.notification-item .item-media i{
+	font-size: 17px;
+    margin: 0 9px 0 0;
+}
+
+.notifications .notification-item{
+ 
+}
+.bg-red, .button.button-fill.bg-red, .list-block .swipeout-actions-left a.bg-red, .list-block .swipeout-actions-right a.bg-red, a.bg-red {
+    background-color: #ff3b30;
+}
+
+.welcom-container {
+        background-attachment: scroll;
+    background-clip: border-box;
+    background-color: #0473c2;
+    background-image: url("../img/bg.jpg");
+    background-origin: padding-box;
+    background-position-x: center;
+    background-position-y: bottom;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.welcom-container .logo {
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 10%;
+    padding: 0 15px;
+}
+.welcom-container .logo img{
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    max-height: 103px;
+    margin-bottom: 10px;
+}
+
+.welcom-container .close-popup {
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 4px;
+    bottom: 0;
+    color: #fff;
+    display: table;
+    font: bold 13px/22px "JF Flat Regular";
+    left: auto;
+    margin: 0 auto;
+    padding: 4px 21px;
+    position: relative;
+    right: auto;
+    text-align: center;
+    top: auto;
+}
+.welcom-container .go {
+    color: #fff;
+    font: bold 13px/22px "JF Flat Regular";
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 10%;
+    padding: 0;
+}
+.welcom-container .go > a {
+    color: #fff;
+    display: block;
+    margin-bottom: 7px;
+}
+.index-subnavbar {
+}
+.index-subnavbar .button {
+    border: medium none;
+    border-radius: 0;
+    color: #fff;
+    font: bold 12px/26px "JF Flat Regular";
+}
+.index-subnavbar .button.active {
+    background: rgba(0, 0, 0, 0.1) none repeat scroll 0 0;
+}
+.index-subnavbar .button:first-child {
+    border: medium none;
+    border-radius: 0;
+}
+.index-subnavbar .button:last-child {
+    border: medium none;
+    border-radius: 0;
+}
+.brands-list {
+    direction: rtl;
+}
+.brands-list .accordion-item-toggle {
+    font: bold 12px/26px "JF Flat Regular";
+}
+.brand-list {
+}
+.brand-list > li {
+    float: right !important;
+    height: 78px;
+}
+.brand-list > li > a {
+    background-color: #fff;
+    display: block;
+    height: 64px;
+    max-height: 100%;
+    max-width: 100%;
+    padding: 7px;
+    width: auto;
+}
+.brand-list > li > a button {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: transparent;
+}
+.brand-list > li > a img {
+    display: block;
+    height: auto;
+    margin: 0 auto;
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+}
+#chat-box .messages-content,
+#chat-box .messages {
+    background:transparent;
+}
+#chat-box  {
+    background: url('../img/bg.png');
+}
+#chat-box  a.link{
+    background: rgba(0, 0, 0, 0) url("../img/send.png") no-repeat scroll 0 0 / 100% auto;
+    font-size: 0;
+    top: 12px;
+    width: 29px;
+}
+.home-form {
+    margin: 0 !important;
+}
+.home-form .list-block {
+    margin: 0;
+}
+.list-block .item-title {
+    text-align: right;
+    white-space: pre-line;
+    width: 100%;
+}
+.navbar-fixed .toolbar:not(.messagebar){
+	top: auto;
+}
+
+.pull-to-refresh-content.pull-down {
+    background: rgba(0, 0, 0, 0) url("../img/pull-down.png") no-repeat scroll center 14px;
+    padding-top: 33px;
+}
+
+.pull-to-refresh-content.pull-up {
+    background: rgba(0, 0, 0, 0) url("../img/pull-up.png") no-repeat scroll center 14px;
+    padding-top: 33px;
+}
+
+.pull-to-refresh-content.refreshing {
+    background: rgba(0, 0, 0, 0) url("../img/progress.gif") no-repeat scroll center 14px;
+    padding-top: 33px;
+}
+
+.auction_start{
+    color: #000;
+    direction: rtl;
+    font: 14px "JF Flat Regular";
+    padding: 10px 15px;
+    text-align: justify;
+    word-wrap: break-word;
+}
+
+.list-auctions{}
+.list-auctions .item-inner{
+	margin:0 !important;
+	background-image: none !important;
+}
+.list-auctions .item-link{
+	padding:0 !important;
+}
+
+.wrapper-block{
+    background-color: #fff;
+    padding: 4px 8px;
+}
+.wrapper-block input{
+	display:none;
+}
+
+.Sections-container {
+    font: bold 12px "JF Flat Regular";
+    overflow: hidden;
+    width: 100%;
+}
+.Sections-container .swiper-wrapper {
+}
+.Sections-container .swiper-wrapper .swiper-slide {
+    -moz-appearance: none;
+    background: transparent none repeat scroll 0 0;
+    box-sizing: border-box;
+    color: #777;
+    cursor: pointer;
+    display: block;
+    font-family: inherit;
+    font-size: 14px;
+    height: 29px;
+    line-height: 27px;
+    margin: 0;
+    outline: 0 none;
+    overflow: hidden;
+    padding: 0 10px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.Sections-container .swiper-wrapper .active {
+    border-bottom: 2px solid #0473c0;
+    border-radius: 0;
+    color: #0473c0;
+}
+.Sub-Sections-container {
+    font: bold 12px "JF Flat Regular";
+    overflow: hidden;
+    width: 100%;
+}
+.Sub-Sections-container .swiper-wrapper {
+}
+.Sub-Sections-container .swiper-wrapper .swiper-slide {
+    -moz-appearance: none;
+    background: transparent none repeat scroll 0 0;
+    border: 1px solid #49bf05;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #49bf05;
+    cursor: pointer;
+    display: block;
+    font-family: inherit;
+    font-size: 14px;
+    height: 29px;
+    line-height: 27px;
+    margin: 0;
+    outline: 0 none;
+    overflow: hidden;
+    padding: 0 10px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.Sub-Sections-container .swiper-wrapper .active{
+    background-color: #49bf05;
+    color: #fff;
+}
+.tpes-container {
+    font: bold 12px "JF Flat Regular";
+    overflow: hidden;
+    width: 100%;
+}
+.tpes-container .swiper-wrapper {
+}
+.tpes-container .swiper-wrapper .swiper-slide {
+    -moz-appearance: none;
+    background: transparent none repeat scroll 0 0;
+    border: 1px solid #007aff;
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: #007aff;
+    cursor: pointer;
+    display: block;
+    font-family: inherit;
+    font-size: 14px;
+    height: 29px;
+    line-height: 27px;
+    margin: 0;
+    outline: 0 none;
+    overflow: hidden;
+    padding: 0 10px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.tpes-container .swiper-wrapper .active {
+	background-color: #007aff;
+    color: #fff;
+}
+.list-block textarea{
+	height:120px;
+}
