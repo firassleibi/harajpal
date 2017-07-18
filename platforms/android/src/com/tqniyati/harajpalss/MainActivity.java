@@ -17,7 +17,7 @@
        under the License.
  */
 
-package com.tqniyati.harajpals;
+package com.tqniyati.harajpalss;
 
 import android.os.Bundle;
 import org.apache.cordova.*;
